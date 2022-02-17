@@ -11,9 +11,9 @@ class IndexView(View):
 		def get(self, request):
 			return render(request, 'index.html')
 
-		def post(self, request):
-			if 'login' in request.POST:
-				return redirect('sample:register_view')
+		# def post(self, request):
+		# 	if 'login' in request.POST:
+		# 		return redirect('sample:register')
 
 
 class RegistrationView(View):
