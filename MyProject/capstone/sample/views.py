@@ -29,10 +29,16 @@ class RegistrationView(View):
 				idnum = request.POST.get("idnum")
 				email = request.POST.get("email")
 				password = request.POST.get("password")
-				form = Student(firstname = fname, lastname = lname, idnum = idnum, email = email, password = password)
-				form.save()
+				cpassword = request.POST.get("cpassword")
 
-				return HttpResponse('Student record saved!')
+				if password != cpassword:
+					messages.info(request, 'Passwords do not match!')
+					return redirect('sample:register')
+
+				elif password == cpassword:
+					form = Student(firstname = fname, lastname = lname, idnum = idnum, email = email, password = password)
+					form.save()
+					return render(request,'login.html')
 
 			else:
 				print(form.errors)
