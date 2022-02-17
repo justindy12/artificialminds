@@ -37,3 +37,8 @@ class RegistrationView(View):
 			else:
 				print(form.errors)
 				return HttpResponse('not valid')
+
+
+class LoginView(View):
+		def get(self, request):
+			return render(request, 'login.html')
