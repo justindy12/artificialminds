@@ -38,6 +38,8 @@ class RegistrationView(View):
 				elif password == cpassword:
 					form = Student(firstname = fname, lastname = lname, idnum = idnum, email = email, password = password)
 					form.save()
+					fname = fname
+					messages.success(request, f'Hi {fname}, your account was created successfully!')
 					return render(request,'login.html')
 
 			else:
