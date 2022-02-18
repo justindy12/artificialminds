@@ -1,33 +1,18 @@
 {% extends "base.html" %}
 
-{% block content %}
-    <div id="navbar-animmenu">
-        <ul class="show-dropdown main-navbar">
-            <li>
-                <a href="{% url 'sample:home' %}"><i class="fa-solid fa-house-chimney"></i>Home</a>
-            </li>
-            <li>
-                <a href="{% url 'sample:about' %}"><i class="fa-solid fa-address-card"></i>About</a>
-            </li>
-            <li class="active">
-                <a href="{% url 'sample:contact' %}"><i class="fa-solid fa-square-phone"></i>Contact</a>
-            </li>
-            <li>
-                <a href="{% url 'sample:setting' %}"><i class="fa-solid fa-user-astronaut"></i>Settings</a>
-            </li>
-            <li style="border-radius: 5px; border-bottom: 2px white solid; pointer-events: none;">
-                {% if user.is_authenticated %}
-                    <a> {{user.username}}</a>
-                {% endif %}
-             </li>   
-            <li>
-                <a href="{% url 'sample:logout' %}"><i class="fa-solid fa-user-astronaut"></i>Log Out</a>
-            </li>
-        </ul>
-        <a href="#"><img src="../static/img/images/logo.png" class="logo" style="max-width: 120px; margin-left: 650px;position: relative;"></a>
-    </div>
-    <h2>Contact PAGE</h2>
 
-    <div class="circle1">
-    </div>
-{% endblock%}
+{% load static %}
+
+    {% block title %} Contact | ArtificialMinds {% endblock %}
+
+    {% block css %}
+    <link rel="stylesheet" type="text/css" href="../static/css/contact.css">
+    {% endblock%}
+
+    {% block nav_about %}active{% endblock %}
+
+{% block content %}
+<h2>contact PAGE</h2>
+{% endblock %}
+
+
