@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
-  
   {% if messages %}
   {% for message in messages %}
     <div style="padding: 1px; background-color: #b3ffcc;" class="alert alert-{{message.tags}}">{{message}}</div>
@@ -18,7 +17,7 @@
   {% endif %}
   {% block content %}
   {% endblock content %}
-  
+
     <section>
         <div class="circle3">
         </div>
@@ -31,6 +30,15 @@
                 </div> 
         </div>
         <div class="wrapper">
+          <div class="container" style="padding: 10px; background-color: #b3ffcc; margin: 0;">
+            {% if messages %}
+              {% for message in messages %}
+                <div class="alert alert-{{message.tags}}">{{message}}</div>
+              {% endfor %}
+            {% endif %}
+            {% block content %}
+            {% endblock content %}
+            </div>
             <form action="#">
                 <h2>Log in to your account</h2>
               <div class="field id">
