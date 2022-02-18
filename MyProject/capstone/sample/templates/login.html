@@ -10,6 +10,14 @@
     <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
+  {% if messages %}
+  {% for message in messages %}
+    <div style="padding: 1px; background-color: #b3ffcc;" class="alert alert-{{message.tags}}">{{message}}</div>
+  {% endfor %}
+  {% endif %}
+  {% block content %}
+  {% endblock content %}
+
     <section>
         <div class="circle3">
         </div>
