@@ -1,4 +1,5 @@
 from django.db import models
+from django import forms
 
 class Student(models.Model):
 	firstname = models.CharField(max_length = 100)
@@ -9,3 +10,4 @@ class Student(models.Model):
 
 	class Meta:
 		db_table = "student"
+

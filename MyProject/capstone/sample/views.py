@@ -5,6 +5,9 @@ from django.views.generic import View
 from .forms import StudentForm
 from django.contrib import messages
 from .models import *
+from django.contrib.auth.models import User, auth
+from django.contrib.auth import authenticate, login
+
 # Create your views here.
 
 class IndexView(View):
@@ -18,42 +21,42 @@ class IndexView(View):
 
 class RegistrationView(View):
 		def get(self, request):
-			return render(request,'register.html')
+			return render(request, 'register.html')
 
-		def post(self,request):
-			form = StudentForm(request.POST)
+		def post(self, request):
+			fname = request.POST['firstname']
+			lname = request.POST['lastname']
+			idnum = request.POST['idnum']
+			email = request.POST['email']
+			password = request.POST['password']
+			cpassword = request.POST['cpassword']
 
-			if form.is_valid():
-				fname = request.POST.get("firstname")
-				lname = request.POST.get("lastname")
-				idnum = request.POST.get("idnum")
-				email = request.POST.get("email")
-				password = request.POST.get("password")
-				cpassword = request.POST.get("cpassword")
+			user = User.objects.create_user(username=email,first_name=fname, last_name=lname, password=password)
+			user.save()
+			print('user created')
+			return redirect('sample:login')
+		
 
-				if password != cpassword:
-					messages.info(request, 'Passwords do not match!')
-					return redirect('sample:register')
+def login(request):
+	if request.method == 'POST':
+		username = request.POST.get('username')
+		password = request.POST.get('password')
 
-				elif password == cpassword:
-					form = Student(firstname = fname, lastname = lname, idnum = idnum, email = email, password = password)
-					form.save()
-					fname = fname
-					messages.success(request, f'Hi {fname}, your account was created successfully!')
-					return render(request,'login.html')
+		user = auth.authenticate(username = username, password = password)
 
-			else:
-				print(form.errors)
-				return HttpResponse('not valid')
+		if user is not None:
+			auth.login(request, user)
+			return redirect("sample:home")
+		else:
+			messages.error(request, 'Username and Password do not match!')
+			return redirect('sample:login')
 
-
-class LoginView(View):
-		def get(self, request):
-			return render(request, 'login.html')
+	else:
+		return render(request,'login.html')
 
 class HomeView(View):
-		def get(self, request):
-			return render(request, 'home.html')
+	def get(self, request):
+		return render(request, 'home.html')
 
 class AboutView(View):
 		def get(self, request):
