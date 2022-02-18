@@ -1,53 +1,38 @@
 {% extends "base.html" %}
 
+    {% load static %}
+
+    {% block title %} Home | ArtificialMinds {% endblock %}
+
+    {% block css %}
+    <link rel="stylesheet" type="text/css" href="../static/css/home.css">
+    {% endblock%}
+
+    {% block nav_home %} active {% endblock %}
+
 {% block content %}
-
-<div id="navbar-animmenu">
-    <ul class="show-dropdown main-navbar">
-        <li class="active">
-            <a href="{% url 'sample:home' %}"><i class="fa-solid fa-house-chimney"></i>Home</a>
-        </li>
-        <li>
-            <a href="{% url 'sample:about' %}"><i class="fa-solid fa-address-card"></i>About</a>
-        </li>
-        <li>
-            <a href="{% url 'sample:contact' %}"><i class="fa-solid fa-square-phone"></i>Contact</a>
-        </li>
-        <li>
-            <a href="{% url 'sample:setting' %}"><i class="fa-solid fa-user-astronaut"></i>Settings</a>
-        </li>
-        <li style="border-radius: 5px; border-bottom: 2px white solid; pointer-events: none;">
-            {% if user.is_authenticated %}
-                <a> {{user.username}}</a>
-            {% endif %}
-         </li>   
-        <li>
-            <a href="{% url 'sample:logout' %}"><i class="fa-solid fa-user-astronaut"></i>Log Out</a>
-        </li>
-    </ul>
-    <a href="#"><img src="../static/img/images/logo.png" class="logo" style="max-width: 120px; margin-left: 650px;position: relative;"></a>
-</div>
-<section class="hero-section">
-    <div class="card-grid">
-        <a class="card" href="{% url 'sample:setappointment' %}">
-        <div class="card__background" style="background-image: url(https://images.unsplash.com/photo-1557177324-56c542165309?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)"></div>
-        <div class="card__content">
-            <p class="card__category">Category</p>
-            <h3 class="card__heading">Set Appointments</h3>
+    
+<h3>USER LIBRARY</h3>
+   <div class="container">
+       <div class="box">
+        <div class="icon">
+            <h1>Set Appointments</h1>
+            <img class="logo" src="../static/img/images/appointments.png">
+            <div class="button1">
+                <a href="{% url 'sample:setappointment' %}">Create</a>
+            </div>
+          
         </div>
-        </a>
-        <a class="card" href="#">
-        <div class="card__background" style="background-image: url(https://images.unsplash.com/photo-1557187666-4fd70cf76254?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)"></div>
-        <div class="card__content">
-            <p class="card__category">Category</p>
-            <h3 class="card__heading">View Appointments</h3>
-        </div>
-        </a>
-    <div>
-    <div class="circle">
-    </div>
-</section>
-<div class="circle1">
-</div>
+       </div>
+       <div class="box">
+        <div class="icon">
+            <h1>View Appointments</h1>
+            <img class="logo" src="../static/img/images/appointment2.png">
+            <div class="button2">
+                <a href="#">View</a>
+            </div>
+          
+       </div>
+   </div>
 
-{% endblock%}
+{% endblock %}
