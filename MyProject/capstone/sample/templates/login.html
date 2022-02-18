@@ -13,7 +13,7 @@
   
   {% if messages %}
   {% for message in messages %}
-    <div style="padding: 5px; background-color: #b3ffcc;" class="alert alert-{{message.tags}}">{{message}}</div>
+    <div style="padding: 1px; background-color: #b3ffcc;" class="alert alert-{{message.tags}}">{{message}}</div>
   {% endfor %}
   {% endif %}
   {% block content %}
