@@ -42,3 +42,23 @@ class RegistrationView(View):
 class LoginView(View):
 		def get(self, request):
 			return render(request, 'login.html')
+
+class HomeView(View):
+		def get(self, request):
+			return render(request, 'home.html')
+
+class AboutView(View):
+		def get(self, request):
+			return render(request, 'about.html')
+
+class ContactView(View):
+		def get(self, request):
+			return render(request, 'contact.html')
+
+class SettigView(View):
+		def get(self, request):
+			return render(request, 'setting.html')
+
+class LogoutView(View):
+		def get(self, request):
+			return render(request, 'logout.html')
