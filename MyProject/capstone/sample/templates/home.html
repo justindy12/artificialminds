@@ -15,14 +15,11 @@
         <li>
             <a href="{% url 'sample:setting' %}"><i class="fa-solid fa-user-astronaut"></i>Settings</a>
         </li>
-<<<<<<< Updated upstream
-=======
         <li style="border-radius: 5px; border-bottom: 2px white solid; pointer-events: none;">
             {% if user.is_authenticated %}
                 <a> {{user.username}}</a>
             {% endif %}
          </li>   
->>>>>>> Stashed changes
         <li>
             <a href="{% url 'sample:logout' %}"><i class="fa-solid fa-user-astronaut"></i>Log Out</a>
         </li>
@@ -49,14 +46,7 @@
     <div class="circle">
     </div>
 </section>
-<<<<<<< Updated upstream
-<div class="circle">
-</div>
-<div class="circle1">
-</div>
-=======
 <div class="circle1">
 </div>
 
->>>>>>> Stashed changes
 {% endblock%}
