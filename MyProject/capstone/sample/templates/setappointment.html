@@ -15,45 +15,15 @@
         <li>
             <a href="{% url 'sample:setting' %}"><i class="fa-solid fa-user-astronaut"></i>Settings</a>
         </li>
-<<<<<<< Updated upstream
-=======
         <li style="border-radius: 5px; border-bottom: 2px white solid; pointer-events: none;">
             {% if user.is_authenticated %}
                 <a> {{user.username}}</a>
             {% endif %}
          </li>   
->>>>>>> Stashed changes
         <li>
             <a href="{% url 'sample:logout' %}"><i class="fa-solid fa-user-astronaut"></i>Log Out</a>
         </li>
     </ul>
-<<<<<<< Updated upstream
-    <a href="#"><img src="../static/img/images/logo.png" class="logo" style="max-width: 120px; margin-left: 800px;position: relative;"></a>
-</div>
-
-<section class="book" id="book">
-    
-    <div class="row">
-        <div class="image">
-            <img src="../static/img/images/calendar.png">
-        </div>
-
-        <form action="">
-            <h3>Schedule Meeting</h3>
-            <input type="text" placeholder="your name" class="box">
-            <input type="number" placeholder="your number" class="box">
-            <input type="email" placeholder="your email" class="box">
-            <input type="date" class="box">
-            <input type="submit" value="book now" class="btn">
-        </form>
-    </div>
-    <div class="circle">
-    </div>
-</section>
-
-<!-- booking section ends -->
-
-=======
     <a href="#"><img src="../static/img/images/logo.png" class="logo" style="max-width: 120px; margin-left: 650px;position: relative;"></a>
 </div>
 
@@ -64,5 +34,4 @@
 <!-- end here -->
 <div class="circle1">
 </div>
->>>>>>> Stashed changes
 {% endblock%}
