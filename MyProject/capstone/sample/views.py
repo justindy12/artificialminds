@@ -70,3 +70,7 @@ class SettingView(View):
 class LogoutView(View):
 		def get(self, request):
 			return render(request, 'logout.html')
+
+class SetAppointmentView(View):
+		def get(self, request):
+			return render(request, 'setappointment.html')

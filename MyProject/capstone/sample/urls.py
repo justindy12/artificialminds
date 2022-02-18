@@ -10,5 +10,6 @@ urlpatterns = [
 	path('about', views.AboutView.as_view(), name="about"),
 	path('contact', views.ContactView.as_view(), name="contact"),
 	path('setting', views.SettingView.as_view(), name="setting"),
-	path('lgout', views.LogoutView.as_view(), name="logout"),
+	path('logout', views.LogoutView.as_view(), name="logout"),
+	path('setappointment', views.SetAppointmentView.as_view(), name="setappointment"),
 ]

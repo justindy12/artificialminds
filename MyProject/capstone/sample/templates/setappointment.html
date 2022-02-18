@@ -21,28 +21,27 @@
     </ul>
     <a href="#"><img src="../static/img/images/logo.png" class="logo" style="max-width: 120px; margin-left: 800px;position: relative;"></a>
 </div>
-<section class="hero-section">
-    <div class="card-grid">
-        <a class="card" href="#">
-        <div class="card__background" style="background-image: url(https://images.unsplash.com/photo-1557177324-56c542165309?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)"></div>
-        <div class="card__content">
-            <p class="card__category">Category</p>
-            <h3 class="card__heading">Set Appointments</h3>
+
+<section class="book" id="book">
+    
+    <div class="row">
+        <div class="image">
+            <img src="../static/img/images/calendar.png">
         </div>
-        </a>
-        <a class="card" href="#">
-        <div class="card__background" style="background-image: url(https://images.unsplash.com/photo-1557187666-4fd70cf76254?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)"></div>
-        <div class="card__content">
-            <p class="card__category">Category</p>
-            <h3 class="card__heading">View Appointments</h3>
-        </div>
-        </a>
-    <div>
+
+        <form action="">
+            <h3>Schedule Meeting</h3>
+            <input type="text" placeholder="your name" class="box">
+            <input type="number" placeholder="your number" class="box">
+            <input type="email" placeholder="your email" class="box">
+            <input type="date" class="box">
+            <input type="submit" value="book now" class="btn">
+        </form>
+    </div>
     <div class="circle">
     </div>
 </section>
-<div class="circle">
-</div>
-<div class="circle1">
-</div>
+
+<!-- booking section ends -->
+
 {% endblock%}
