@@ -15,10 +15,19 @@
         <li>
             <a href="{% url 'sample:setting' %}"><i class="fa-solid fa-user-astronaut"></i>Settings</a>
         </li>
+<<<<<<< Updated upstream
+=======
+        <li style="border-radius: 5px; border-bottom: 2px white solid; pointer-events: none;">
+            {% if user.is_authenticated %}
+                <a> {{user.username}}</a>
+            {% endif %}
+         </li>   
+>>>>>>> Stashed changes
         <li>
             <a href="{% url 'sample:logout' %}"><i class="fa-solid fa-user-astronaut"></i>Log Out</a>
         </li>
     </ul>
+<<<<<<< Updated upstream
     <a href="#"><img src="../static/img/images/logo.png" class="logo" style="max-width: 120px; margin-left: 800px;position: relative;"></a>
 </div>
 
@@ -44,4 +53,16 @@
 
 <!-- booking section ends -->
 
+=======
+    <a href="#"><img src="../static/img/images/logo.png" class="logo" style="max-width: 120px; margin-left: 650px;position: relative;"></a>
+</div>
+
+<!-- start code here-->
+<div>
+    <p>Diri pag sugod ver</p>
+</div>
+<!-- end here -->
+<div class="circle1">
+</div>
+>>>>>>> Stashed changes
 {% endblock%}
