@@ -10,14 +10,7 @@
     <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
-  {% if messages %}
-  {% for message in messages %}
-    <div style="padding: 1px; background-color: #b3ffcc;" class="alert alert-{{message.tags}}">{{message}}</div>
-  {% endfor %}
-  {% endif %}
-  {% block content %}
-  {% endblock content %}
-
+  
     <section>
         <div class="circle3">
         </div>
@@ -30,21 +23,14 @@
                 </div> 
         </div>
         <div class="wrapper">
-          <div class="container" style="padding: 10px; background-color: #b3ffcc; margin: 0;">
-            {% if messages %}
-              {% for message in messages %}
-                <div class="alert alert-{{message.tags}}">{{message}}</div>
-              {% endfor %}
-            {% endif %}
-            {% block content %}
-            {% endblock content %}
-            </div>
-            <form action="#">
+         
+            <form action="login" method="post">
+                  {% csrf_token %}
                 <h2>Log in to your account</h2>
               <div class="field id">
                 <div class="sign-txt" style="font-size: 12px;">Not yet member? <a href="{% url 'sample:register' %}">Sign  up.</a> <br><br></div>
                 <div class="input-area">
-                  <input type="text" placeholder="ID Number">
+                  <input type="text" name="username" placeholder="Username or Email">
                   <i class="icon fas fa-envelope"></i>
                   <i class="error error-icon fas fa-exclamation-circle"></i>
                 </div>
@@ -52,7 +38,7 @@
               </div>
               <div class="field password">
                 <div class="input-area">
-                  <input type="password" placeholder="Password">
+                  <input type="password" name="password" placeholder="Password">
                   <i class="icon fas fa-lock"></i>
                   <i class="error error-icon fas fa-exclamation-circle"></i>
                 </div>
@@ -60,9 +46,13 @@
               </div>
               <div class="pass-txt"><a href="#">Forgot password?</a></div>
               <input type="submit" value="Continue">
+              {% for message in messages %}
+              <h6 style="color:red"> {{message}} </h6>
+          {% endfor %}
             </form>
             <div class="sign-txt"><p>By continuing, you agree to our <a href="#">Terms of Service.</a></p></div>
           </div>
+      
           <script src="script.js"></script>
         <div class="circle4">
         </div>

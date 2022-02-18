@@ -19,5 +19,5 @@ from django.conf.urls import include
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('sample/', include('sample.urls', namespace='sample')),
+    path('', include('sample.urls', namespace='sample')),
 ]
