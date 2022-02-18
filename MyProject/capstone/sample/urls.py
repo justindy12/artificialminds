@@ -11,4 +11,6 @@ urlpatterns = [
 	path('contact', views.ContactView.as_view(), name="contact"),
 	path('setting', views.SettingView.as_view(), name="setting"),
 	path('logout', views.LogoutView.as_view(), name="logout"),
+	path('setappointment', views.SetAppointmentView.as_view(), name="setappointment"),
+
 ]
