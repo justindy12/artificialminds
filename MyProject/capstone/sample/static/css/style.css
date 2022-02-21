@@ -133,7 +133,7 @@ header ul li a {
     top: 0;
     left: 0;
     width: 100%;
-    height: 109.5%;
+    height: 100vh;
     background-image: linear-gradient(180deg, #002BDC, #0693E3);
     clip-path: circle(560px at right 650px);
 }
@@ -159,16 +159,6 @@ header ul li a {
     background-image: linear-gradient(180deg, #002BDC, #0693E3);
     clip-path: circle(750px at left 850px);
 }
-/* 
-.circle2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(180deg, #2e50da, #3ca2dd);
-    clip-path: circle(700px at right -100px);
-}  */
 
 .container {
     position: relative;
