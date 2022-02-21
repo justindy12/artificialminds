@@ -77,3 +77,7 @@ class LogoutView(View):
 class SetAppointmentView(View):
 		def get(self, request):
 			return render(request, 'setappointment.html')
+
+class ViewAppointmentView(View):
+		def get(self, request):
+			return render(request, 'viewappointment.html')

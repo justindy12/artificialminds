@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+    {% load static %}
+
+    {% block title %} View Appointments | ArtificialMinds {% endblock %}
+
+    {% block css %}
+    <link rel="stylesheet" type="text/css" href="../static/css/viewappointment.css">
+    {% endblock%}
+    {% block nav_home %} active {% endblock %}
+
+{% block content %}
+<div class="limiter">
+	<div class="container-table100">
+		<div class="wrap-table100">
+			<div class="table100">
+				<table>
+					<thead>
+						<tr class="table100-head">
+							<th class="column1">ID</th>
+							<th class="column2">Urgency</th>
+							<th class="column2">Type</th>
+							<th class="column3">Status</th>
+							<th class="column4">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+							<tr>
+								<td class="column1">1</td> <!--appointment id-->
+								<td class="column2">Now</td> <!--appointment id-->
+								<td class="column3">Live</td> <!--Type of Meetong-->
+								<td class="column4">Pending</td> <!--Status Request-->
+								<td class="column5"> 
+								<button class="button">Start</button>
+
+								</td>
+							</tr>						
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<!--===============================================================================================-->	
+<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/bootstrap/js/popper.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="js/main.js"></script>
+
+{% endblock %}
+
