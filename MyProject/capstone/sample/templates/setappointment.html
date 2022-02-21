@@ -7,56 +7,81 @@
     {% block css %}
     <link rel="stylesheet" type="text/css" href="../static/css/setappointment.css">
     {% endblock%}
-    {% block bootstrap %}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    {% endblock%}
     {% block nav_home %} active {% endblock %}
 
 {% block content %}
   
 <!-- start code here-->
-<div>
-    <div class="container mt-5">
-    <div class="row">
-        <div class="col-md-6 offset-md-3 border p-4 shadow bg-light">
-            <div class="col-12">
-                <h3 class="fw-normal text-secondary fs-4 text-uppercase mb-4">Set Appointment</h3>
-            </div>
-            <form action="">
-                <div class="row g-3">
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" placeholder="First Name">
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('input[type="radio"]').click(function(){
+      var val = $(this).attr("value");
+      var target = $("." + val);
+      $(".msg").not(target).hide();
+      $(target).show();
+    });
+  });
+</script>
+
+
+<div class="body">
+    <div class="container">
+        <h3>Book an appointment.</h3>
+        <br>
+        <div class="content">
+            <form action="#" method="#">
+                {% csrf_token %}
+
+                <div class="meeting">
+                    <span class="meeting-title"><strong>Type of Meeting</strong></span>
+                    <p style="font-size: 10px;">Choose one to proceed:</p>
+                    <div class="category">
+                        <label for="dot-1">
+                            <input type="radio" name="meeting" id="dot-1" checked="checked">
+                            <span class="dot one"></span>
+                            <span class="meeting">Live</span>
+                        </label>
+                        <label for="dot-2">
+                            <input type="radio" name="meeting" id="dot-2">
+                            <span class="dot two"></span>
+                            <span class="meeting">Chat</span>
+                        </label>
                     </div>
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" placeholder="Last Name">
-                    </div>
-                    <div class="col-md-6">
-                        <input type="tel" class="form-control" placeholder="Phone Number">
-                    </div>
-                    <div class="col-md-6">
-                        <input type="email" class="form-control" placeholder="Enter Email">
-                    </div>
-                    <div class="col-md-6">
-                        <input type="date" class="form-control" placeholder="Enter Date">
-                    </div>
-                    <div class="col-md-6">
-                        <input type="time" class="form-control" placeholder="Enter Email">
-                    </div>
-                    <div class="col-12">
-                        <select class="form-select">
-                            <option selected>Type Of Appointment</option>
-                            <option value="1">live</option>
-                            <option value="2">Off Cam</option>
-                            <option value="3">Survey</option>
-                        </select>
-                    </div>
-                    <div class="col-12">
-                        <textarea class="form-control" placeholder="Message"></textarea>
-                    </div>
-                    <div class="col-12 mt-5">                        
-                        <button type="submit" class="btn btn-primary float-end">Book Appointment</button>
-                        <button type="button" class="btn btn-outline-secondary float-end me-2">Cancel</button>
-                    </div>
+                </div>
+                <br>
+                <p style="font-size: 15px;"><strong>Urgency & Schedule</strong></p>
+                <input type="radio" name="color" value="now" checked="checked"> Now
+                <input type="radio" name="color" value="later"> Later
+                <div class="now msg" style="padding-top: 5px;">
+                    <p style="font-size: 14px;"><i>Available Counsellor</i></p>
+                    <select name="counsellor" id="counselor">
+                        <option selected disabled>Please select one</option>
+                        <option value="#">Counselor 1</option>
+                        <option value="#">Counselor 2</option>
+                    </select>
+                </div>
+                <div class="later msg" style="padding-top: 5px;" hidden>
+                    <p style="font-size: 14px;"><i>Available Counselors with their Schedule</i></p>
+                    <select name="counsellor" id="counselor">
+                        <option selected disabled>Please select one</option>
+                        <optgroup label="Counselor 1">
+                            <option value="#">Schedule 1</option>
+                            <option value="#">Schedule 2</option>
+                            <option value="#">Schedule 3</option>
+                        </optgroup>
+                        <optgroup label="Counselor 2">
+                            <option value="#">Schedule 1</option>
+                            <option value="#">Schedule 2</option>
+                            <option value="#">Schedule 3</option>
+                        </optgroup>
+                    </select>
+                </div>
+
+                
+                <p style="font-size: 12px; padding-top: 80px;">Please review your appointment before proceeding.</a></p>
+                <div class="button">
+                    <input type="submit" value="Book Appointment">
                 </div>
             </form>
         </div>
