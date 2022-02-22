@@ -19,19 +19,20 @@
             <a href="{% url 'sample:index' %}"><img src="../static/img/images/logov3.png" class="logo"></a>
         </header>
         <div class="content">
-                <div class="imgBox">
-                    <img src="../static/img/images/img4.png" class="logo" style="width: 500px; height:auto; margin-right: 10px;">
-                </div> 
+                <!-- <div class="imgBox">
+                    <img src="../static/img/images/img4.png" class="logo" style="width: 500px; height:auto; margin-right: 650px; margin-top: -200px; ">
+                </div>  -->
         </div>
         <div class="wrapper">
          
-            <form action="login" method="post">
+            <form action="login" method="POST">
                   {% csrf_token %}
+                
                 <h2>Log in to your account</h2>
               <div class="field id">
                 <div class="sign-txt" style="font-size: 12px;">Not yet member? <a href="{% url 'sample:register' %}">Sign  up.</a> <br><br></div>
                 <div class="input-area">
-                  <input type="text" name="email" placeholder="Username or Email">
+                  <input autocomplete="off" type="text" name="email" placeholder="ID number or Email">
                   <i class="icon fas fa-envelope"></i>
                   <i class="error error-icon fas fa-exclamation-circle"></i>
                 </div>
@@ -46,7 +47,9 @@
                 <div class="error error-txt">Password can't be blank</div>
               </div>
               <div class="pass-txt" style="font-size: 12px;"><a href="#">Forgot password?</a></div>
+
               <input class="btn" type="submit" value="Continue">
+
               {% for message in messages %}
               <h6 style="color:red"> {{message}} </h6>
           {% endfor %}

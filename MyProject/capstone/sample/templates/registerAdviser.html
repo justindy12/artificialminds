@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up | CIT by ArtificialMinds</title>
     <link rel="shortcut icon" type="image/png" href="../static/img/images/favicon1.png">
-    <link rel="stylesheet" href="../static/css/register.css">
+    <link rel="stylesheet" href="../static/css/registerAdviser.css">
 </head>
 <body>
     <section>
@@ -29,8 +29,7 @@
                 <h3>Let's get started</h3>
                 <p style="font-size: 12px;">First, create your account. Have an account? <a href="{% url 'sample:login' %}">Log in.</a></p>
                 <div class="content">
-                    <form action="register" method="POST"> 
-                        {% csrf_token %}
+                    <form action="#">
                         <div class="user-details">
                             <div class="input-box">
                                 <span class="details">First Name</span>
@@ -71,8 +70,8 @@
                             </div>
                             <div class="gender-details">
                                 <span class="gender-title" style="font-size: 15px; font-weight: 500;">Gender</span><br>
-                                <input type="radio" name="gender" value="Male" id="dot-1"> Male
-                                <input type="radio" name="gender" value="Female" id="dot-2" style="margin-left: 10px;"> Female
+                                <input type="radio" name="gender" value="Male"id="dot-1">Male
+                                <input type="radio" name="gender" value="Female" id="dot-2" style="margin-left: 10px;">Female
                             </div>
                             <div class="input-box">
                                 <span class="details">Contact Number</span>
