@@ -24,39 +24,66 @@ class RegistrationView(View):
 			return render(request, 'register.html')
 
 		def post(self, request):
-			fname = request.POST['firstname']
-			lname = request.POST['lastname']
-			idnum = request.POST['idnum']
-			email = request.POST['email']
-			password = request.POST['password']
-			cpassword = request.POST['cpassword']
+			form = StudentForm(request.POST)
 
-			user = User.objects.create_user(username=email,first_name=fname, last_name=lname, password=password)
-			user.save()
-			print('user created')
-			return redirect('sample:login')
-		
+			if form.is_valid():
+				firstname = request.POST['firstname']
+				lastname = request.POST['lastname']
+				idnum = request.POST['idnum']
+				email = request.POST['email']
+				course = request.POST['course'] 
+				year = request.POST['year']
+				gender = request.POST['gender']
+				contact = request.POST['contact']
+				password = request.POST['password']
+				cpassword = request.POST['cpassword']
+
+				if password != cpassword:
+					messages.error(request, 'Password do not match!')
+					return redirect('sample:register')
+
+				elif password == cpassword:
+					form = Student(firstname=firstname, lastname=lastname, idnum = idnum, email = email,  course = course, year = year, gender = gender, contact = contact, password = password)
+					form.save()
+					print('student created')
+					return redirect('sample:login')
+
 
 def login(request):
 	if request.method == 'POST':
-		username = request.POST.get('username')
+		email = request.POST.get('email')
 		password = request.POST.get('password')
 
-		user = auth.authenticate(username = username, password = password)
+		if Student.objects.filter(email=email).count() != 0 :
+			account = Student.objects.get(email=email)
+			print('account')
+			if account.password == password:
+				print('login successful')
+				return redirect('sample:home')
 
-		if user is not None:
-			auth.login(request, user)
-			return redirect("sample:home")
+			else: 
+				messages.error(request, 'Incorrect Password')
+
 		else:
-			messages.error(request, 'Username and Password do not match!')
-			return redirect('sample:login')
-
+			messages.error(request, 'Username does not exist!')
+			return render(request,'login.html')
 	else:
 		return render(request,'login.html')
 
+
 class HomeView(View):
 	def get(self, request):
-		return render(request, 'home.html')
+		student_list = Student.objects.all()
+		for student in student_list:
+				print(student)
+		print(student_list)
+
+		context ={
+				'qs' : student_list
+			}
+	
+		return render(request, 'home.html', context)
+
 
 class AboutView(View):
 		def get(self, request):

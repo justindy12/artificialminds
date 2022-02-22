@@ -6,6 +6,10 @@ class Student(models.Model):
 	lastname = models.CharField(max_length = 100)
 	idnum = models.CharField(max_length = 20)
 	email = models.EmailField()
+	course = models.CharField(max_length = 100)
+	year = models.CharField(max_length = 100)
+	gender = models.CharField(max_length = 100)
+	contact = models.CharField(max_length = 100)
 	password = models.CharField(max_length = 100)
 
 	class Meta:

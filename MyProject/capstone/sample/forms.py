@@ -7,5 +7,5 @@ class StudentForm(forms.ModelForm):
 
 	class Meta:
 		model = Student
-		fields = ('firstname','lastname','idnum','email','password')
+		fields = ('firstname','lastname','idnum','email','course','year','gender','contact','password')
 	

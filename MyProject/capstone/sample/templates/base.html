@@ -22,9 +22,9 @@
         
             <ul>
               <li style="color: white; margin-right: 20px; font-size: 12px; pointer-events: none;">
-                  {% if user.is_authenticated %}
-                   {{user.username}}
-                  {% endif %}
+                {% for student in qs %}
+                 {{student.firstname}}
+                {% endfor %}
               </li>
               <li>
                   <a class="{% block nav_home %}{% endblock %}" href="{% url 'sample:home' %}"><i class="fa-solid fa-house-chimney"></i>Home</a>

@@ -37,22 +37,14 @@
                     <span class="meeting-title"><strong>Type of Meeting</strong></span>
                     <p style="font-size: 10px;">Choose one to proceed:</p>
                     <div class="category">
-                        <label for="dot-1">
-                            <input type="radio" name="meeting" id="dot-1" checked="checked">
-                            <span class="dot one"></span>
-                            <span class="meeting">Live</span>
-                        </label>
-                        <label for="dot-2">
-                            <input type="radio" name="meeting" id="dot-2">
-                            <span class="dot two"></span>
-                            <span class="meeting">Chat</span>
-                        </label>
+                       <input type="radio" name="meeting" value="live"> Live
+                       <input type="radio" name="meeting" value="chat"> Chat<br>
                     </div>
                 </div>
                 <br>
                 <p style="font-size: 15px;"><strong>Urgency & Schedule</strong></p>
-                <input type="radio" name="color" value="now" checked="checked"> Now
-                <input type="radio" name="color" value="later"> Later
+                <input type="radio" name="urgency" value="now" checked="checked"> Now
+                <input type="radio" name="urgency" value="later"> Later
                 <div class="now msg" style="padding-top: 5px;">
                     <p style="font-size: 14px;"><i>Available Counsellor</i></p>
                     <select name="counsellor" id="counselor">
