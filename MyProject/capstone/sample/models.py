@@ -30,7 +30,7 @@ class Adviser(models.Model):
     schedule_date = models.DateField(null=True)
     schedule_time = models.TimeField(null=True)
     isLoggedIn = models.BooleanField(default = False)
-	isDeleted = models.IntegerField(default = 0)
+    isDeleted = models.IntegerField(default = 0)
 
     class Meta:
         db_table = "adviser" 
