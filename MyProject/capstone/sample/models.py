@@ -26,7 +26,7 @@ class Adviser(models.Model):
     email = models.EmailField()
     contact = models.CharField(max_length = 100)
     password = models.CharField(max_length = 100)
-    available_anytime = models.IntegerField()
+    available_anytime = models.IntegerField(default = 0)
     schedule_date = models.DateField(null=True)
     schedule_time = models.TimeField(null=True)
     isLoggedIn = models.BooleanField(default = False)
