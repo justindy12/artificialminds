@@ -5,6 +5,7 @@ app_name= 'sample'
 urlpatterns = [
 	path('', views.IndexView.as_view(), name="index"),
 	path('register', views.RegistrationView.as_view(), name="register"),
+	path('aregister', views.AdviserRegistrationView.as_view(), name="aregister"),
 	path('login', views.login, name="login"),
 	path('home', views.HomeView.as_view(), name="home"),
 	path('about', views.AboutView.as_view(), name="about"),
@@ -15,3 +16,4 @@ urlpatterns = [
 	path('viewappointment', views.ViewAppointmentView.as_view(), name="viewappointment"),
 
 ]
+

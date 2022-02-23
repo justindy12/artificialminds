@@ -13,18 +13,20 @@
         
       </head>
       <body>
+
         <nav>
           <input type="checkbox" id="check">
           <label for="check" class="checkbtn">
             <i class="fas fa-bars"></i>
           </label>
           <label class="logo"><img class="logo" src="../static/img/images/logoV2.png"></label>
-        
+             
             <ul>
               <li style="color: white; margin-right: 20px; font-size: 12px; pointer-events: none;">
-                {% for student in qs %}
-                 {{student.firstname}}
-                {% endfor %}
+                
+                {% if student.isLoggedIn == True %}
+                      {{student.firstname}}
+                {% endif %}
               </li>
               <li>
                   <a class="{% block nav_home %}{% endblock %}" href="{% url 'sample:home' %}"><i class="fa-solid fa-house-chimney"></i>Home</a>

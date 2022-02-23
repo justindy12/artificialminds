@@ -46,23 +46,32 @@ class RegistrationView(View):
 					form = Student(firstname=firstname, lastname=lastname, idnum = idnum, email = email,  course = course, year = year, gender = gender, contact = contact, password = password)
 					form.save()
 					print('student created')
+					#messages.success(request, 'Your account has been successfully registered!')
 					return redirect('sample:login')
+
+
+class AdviserRegistrationView(View):
+		def get(self, request):
+			return render(request, 'registerAdviser.html')
 
 
 def login(request):
 	if request.method == 'POST':
 		email = request.POST.get('email')
 		password = request.POST.get('password')
+		students = Student.objects.all()
 
 		if Student.objects.filter(email=email).count() != 0 :
 			account = Student.objects.get(email=email)
 			print('account')
 			if account.password == password:
 				print('login successful')
+				Student.objects.filter(email=email).update(isLoggedIn = True)
 				return redirect('sample:home')
 
-			else: 
+			elif account.password != password: 
 				messages.error(request, 'Incorrect Password')
+				return render(request,'login.html')
 
 		else:
 			messages.error(request, 'Username does not exist!')
@@ -73,16 +82,13 @@ def login(request):
 
 class HomeView(View):
 	def get(self, request):
-		student_list = Student.objects.all()
-		for student in student_list:
-				print(student)
-		print(student_list)
-
-		context ={
-				'qs' : student_list
-			}
+		students = Student.objects.all()
+		
+		for student in students:
+			if(student.isLoggedIn == True):
+				return render(request, 'home.html', {'student':student})
 	
-		return render(request, 'home.html', context)
+		return redirect('sample:login')
 
 
 class AboutView(View):
@@ -98,8 +104,14 @@ class SettingView(View):
 			return render(request, 'setting.html')
 	
 class LogoutView(View):
-		def get(self, request):
-			return render(request, 'logout.html')
+	def get(self, request):
+		students = Student.objects.all()
+		
+		for student in students:
+			if(student.isLoggedIn == True):
+				Student.objects.update(isLoggedIn = False)
+
+		return redirect('sample:login')
 
 class SetAppointmentView(View):
 		def get(self, request):
