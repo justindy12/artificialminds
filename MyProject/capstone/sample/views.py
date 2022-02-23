@@ -110,8 +110,9 @@ class LogoutView(View):
 		for student in students:
 			if(student.isLoggedIn == True):
 				Student.objects.update(isLoggedIn = False)
-
-		return redirect('sample:login')
+		
+		print('user successfully log out')
+		return redirect('sample:index')
 
 class SetAppointmentView(View):
 		def get(self, request):
@@ -120,3 +121,7 @@ class SetAppointmentView(View):
 class ViewAppointmentView(View):
 		def get(self, request):
 			return render(request, 'viewappointment.html')
+
+class AdviserLoginView(View):
+		def get(self, request):
+			return render(request, 'loginAdviser.html')

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | CIT by ArtificialMinds</title>
+    <link rel="shortcut icon" type="image/png" href="../static/img/images/favicon1.png">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+
+    <section>
+        <div class="circle3">
+        </div>
+        <header>
+            <a href="{% url 'sample:index' %}"><img src="../static/img/images/logov3.png" class="logo"></a>
+        </header>
+        <div class="content">
+                <!-- <div class="imgBox">
+                    <img src="../static/img/images/img4.png" class="logo" style="width: 500px; height:auto; margin-right: 650px; margin-top: -200px; ">
+                </div>  -->
+        </div>
+        <div class="wrapper">
+         
+            <form action="login" method="POST">
+                  {% csrf_token %}
+                <p>Adviser</p>
+                <h2>Log in to your account</h2>
+              <div class="field id">
+                <div class="sign-txt" style="font-size: 12px;">Not yet member? <a href="{% url 'sample:aregister' %}">Sign  up.</a> <br><br></div>
+                <div class="input-area">
+                  <input autocomplete="off" type="text" name="email" placeholder="ID number or Email">
+                  <i class="icon fas fa-envelope"></i>
+                  <i class="error error-icon fas fa-exclamation-circle"></i>
+                </div>
+                <div class="error error-txt">ID can't be blank</div>
+              </div>
+              <div class="field password">
+                <div class="input-area">
+                  <input type="password" name="password" placeholder="Password">
+                  <i class="icon fas fa-lock"></i>
+                  <i class="error error-icon fas fa-exclamation-circle"></i>
+                </div>
+                <div class="error error-txt">Password can't be blank</div>
+              </div>
+              <div class="pass-txt" style="font-size: 12px;"><a href="#">Forgot password?</a></div>
+
+              <input class="btn" type="submit" value="Continue">
+
+              {% for message in messages %}
+              <h6 style="color:red"> {{message}} </h6>
+              {% endfor %}
+            </form>
+            <div class="sign-txt" style="font-size: 14px;" ><p>By continuing, you agree to our <a href="#">Terms of Service.</a></p></div>
+          </div>
+      
+          <script src="script.js"></script>
+        <div class="circle4">
+        </div>
+    </section>
+</body>
+</html> 
