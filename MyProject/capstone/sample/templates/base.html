@@ -27,6 +27,9 @@
                 {% if student.isLoggedIn == True %}
                       {{student.firstname}}
                 {% endif %}
+                {% if adviser.isLoggedIn == True %}
+                      {{adviser.firstname}}
+                {% endif %}
               </li>
               <li>
                   <a class="{% block nav_home %}{% endblock %}" href="{% url 'sample:home' %}"><i class="fa-solid fa-house-chimney"></i>Home</a>

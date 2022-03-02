@@ -100,6 +100,29 @@ def login(request):
 	else:
 		return render(request,'login.html')
 
+def alogin(request):
+	if request.method == 'POST':
+		email = request.POST.get('email')
+		password = request.POST.get('password')
+		adviser = Adviser.objects.all()
+
+		if Adviser.objects.filter(email=email).count() != 0:
+			account = Adviser.objects.get(email=email)
+			print('adviser account')
+			if account.password == password:
+				print('adviser login successful')
+				Adviser.objects.filter(email=email).update(isLoggedIn = True)
+				return redirect('sample:ahome')
+
+			elif account.password != password:
+				messages.error(request,'Incorrect Password')
+				return render(request,'alogin.html')
+
+		else:
+			messages.error(request,'Username does not exist!')
+			return render(request,'alogin.html')
+	else:
+		return render(request,'alogin.html')
 
 class HomeView(View):
 	def get(self, request):
@@ -111,6 +134,15 @@ class HomeView(View):
 	
 		return redirect('sample:login')
 
+class AdviserHomeView(View):
+	def get(self, request):
+		advisers = Adviser.objects.all()
+
+		for adviser in advisers:
+			if(adviser.isLoggedIn == True):
+				return render(request, 'homeAdviser.html', {'adviser':adviser})
+
+		return redirect('sample:alogin')
 
 class AboutView(View):
 		def get(self, request):
@@ -127,12 +159,19 @@ class SettingView(View):
 class LogoutView(View):
 	def get(self, request):
 		students = Student.objects.all()
-		
+		advisers = Adviser.objects.all()
+
 		for student in students:
 			if(student.isLoggedIn == True):
 				Student.objects.update(isLoggedIn = False)
+		
 
-		return redirect('sample:login')
+		for adviser in advisers:
+			if(adviser.isLoggedIn == True):
+				Adviser.objects.update(isLoggedIn = False)
+
+		print('user successfully log out')
+		return redirect('sample:index')
 
 class SetAppointmentView(View):
 		def get(self, request):
@@ -141,3 +180,7 @@ class SetAppointmentView(View):
 class ViewAppointmentView(View):
 		def get(self, request):
 			return render(request, 'viewappointment.html')
+
+class AdviserLoginView(View):
+		def get(self, request):
+			return render(request, 'loginAdviser.html')
