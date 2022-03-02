@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import Http404
 from django.http import HttpResponse
 from django.views.generic import View
-from .forms import StudentForm
+from .forms import *
 from django.contrib import messages
 from .models import *
 from django.contrib.auth.models import User, auth
@@ -54,6 +54,27 @@ class AdviserRegistrationView(View):
 		def get(self, request):
 			return render(request, 'registerAdviser.html')
 
+		def post(self,request):
+			form = AdviserForm(request.POST)
+
+			if form.is_valid():
+				firstname = request.POST['firstname']
+				lastname = request.POST['lastname']
+				idnum = request.POST['idnum']
+				email = request.POST['email']
+				contact = request.POST['contact']
+				password = request.POST['password']
+				cpassword = request.POST['cpassword']
+
+				if password != cpassword:
+					messages.error(request, 'Password do not match')
+					return redirect('sample:aregister')
+
+				elif password == cpassword:
+					form = Adviser(firstname=firstname, lastname=lastname, idnum = idnum, email = email, contact = contact, password = password)	
+					form.save()
+					print('adviser created')
+					return redirect('sample:login')
 
 def login(request):
 	if request.method == 'POST':
