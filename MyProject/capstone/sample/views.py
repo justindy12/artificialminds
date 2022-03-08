@@ -175,8 +175,35 @@ class LogoutView(View):
 
 class SetAppointmentView(View):
 		def get(self, request):
-			return render(request, 'setappointment.html')
+			advisers = Adviser.objects.all()
+			students = Student.objects.all()
 
+			for student in students:
+				if(student.isLoggedIn == True):
+					context ={
+						'adviser':advisers,
+						'student':students,
+					}
+					return render(request, 'setappointment.html', {'student':student, 'adviser':advisers})
+
+		def post(seld, request):
+			form = AppointmentForm(request.POST)
+
+			if form.is_valid():
+				student_id = request.POST['student_id']
+				meeting_type = request.POST['meeting_type']
+				meeting_urgency = request.POST['meeting_urgency']
+				meeting_counselor = request.POST['meeting_counselor']
+				meeting_date = request.POST['meeting_date']
+				meeting_time = request.POST['meeting_time']
+
+				form = Appointment(meeting_type=meeting_type, meeting_urgency=meeting_urgency, meeting_counselor=meeting_counselor, meeting_date=meeting_date, meeting_time=meeting_time, student_id=student_id)
+				form.save()
+				print('appointment saved')
+				return redirect('sample:home')
+			
+			else:
+				return redirect('sample:setappointment ')
 class ViewAppointmentView(View):
 		def get(self, request):
 			return render(request, 'viewappointment.html')

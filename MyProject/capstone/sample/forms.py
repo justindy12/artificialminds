@@ -16,3 +16,8 @@ class AdviserForm(forms.ModelForm):
 		fields = ('firstname','lastname','idnum','email','contact','password')
 
 
+class AppointmentForm(forms.ModelForm):
+
+	class Meta:
+		model = Appointment
+		fields = ('meeting_type','meeting_urgency','meeting_time','meeting_date','meeting_counselor')

@@ -30,47 +30,55 @@
         <h3>Book an appointment.</h3>
         <br>
         <div class="content">
-            <form action="#" method="#">
+            <form action="#" method="POST">
                 {% csrf_token %}
-
+                <input type="text" name="student_id" value="{{student.id}}" hidden>
                 <div class="meeting">
                     <span class="meeting-title"><strong>Type of Meeting</strong></span>
                     <p style="font-size: 10px;">Choose one to proceed:</p>
                     <div class="category">
-                       <input type="radio" name="meeting" value="live"> Live
-                       <input type="radio" name="meeting" value="chat"> Chat<br>
+                       <input type="radio" name="meeting_type" value="live" checked="checked"> Live
+                       <input type="radio" name="meeting_type" value="chat"> Chat<br>
                     </div>
                 </div>
+
                 <br>
                 <p style="font-size: 15px;"><strong>Urgency & Schedule</strong></p>
-                <input type="radio" name="urgency" value="now" checked="checked"> Now
-                <input type="radio" name="urgency" value="later"> Later
+                <input type="radio" name="meeting_urgency" value="now" checked="checked"> Now
+                <input type="radio" name="meeting_urgency" value="later"> Later
                 <div class="now msg" style="padding-top: 5px;">
-                    <p style="font-size: 14px;"><i>Available Counsellor</i></p>
-                    <select name="counselor" id="counselor">
-                        <option selected disabled>Please select one</option>
-                        <option value="Counselor 1">Counselor 1</option>
-                        <option value="Counselor 2">Counselor 2</option>
-                    </select>
-                </div>
-                <div class="later msg" style="padding-top: 5px;" hidden>
-                    <p style="font-size: 14px;"><i>Available Counselors with their Schedule</i></p>
-                    <select name="counselor" id="counselor">
-                        <option selected disabled>Please select one</option>
-                        <optgroup label="Counselor 1">
-                            <option value="Schedule 1">Schedule 1</option>
-                            <option value="Schedule 2">Schedule 2</option>
-                            <option value="Schedule 3">Schedule 3</option>
-                        </optgroup>
-                        <optgroup label="Counselor 2">
-                            <option value="Schedule 1">Schedule 1</option>
-                            <option value="Schedule 2">Schedule 2</option>
-                            <option value="Schedule 3">Schedule 3</option>
-                        </optgroup>
+                    <p style="font-size: 14px;"><i>Available Counselors</i></p>
+                    <select name="meeting_counselor" id="counselor">
+                        {% for qs in adviser %}
+                        <option value="{{qs.firstname}}{{qs.lastname}}">{{qs.firstname}} {{qs.lastname}}</option>
+                        {% endfor %}
+                       
                     </select>
                 </div>
 
-                
+                <div class="later msg" style="padding-top: 5px;" hidden>
+                    <p style="font-size: 14px;"><i>Available Counselors</i></p>
+                    <select name="meeting_counselor" id="counselor">
+                        {% for qs in adviser %}
+                        <option value="{{qs.firstname}}{{qs.lastname}}">{{qs.firstname}} {{qs.lastname}}</option>
+                        {% endfor %}                 
+                    </select>
+                </div>
+
+                <br>
+                <p style="font-size: 14px;"><strong>Date and Time of Appointment</strong></p>
+                <input type ="date" name="meeting_date" value="<?php echo $today; ?>">
+                <select name="meeting_time" id='time'>
+                    <option value="8:00 am">8:00 am</option>
+                    <option value="9:00 am">9:00 am</option>
+                    <option value="10:00 am">10:00 am</option>
+                    <option value="11:00 am">11:00 am</option>
+                    <option value="1:00 pm">1:00 pm</option>
+                    <option value="2:00 pm">2:00 pm</option>
+                    <option value="3:00 pm">3:00 pm</option>
+                    <option value="4:00 pm">4:00 pm</option>
+                </select>
+
                 <p style="font-size: 12px; padding-top: 80px;">Please review your appointment before proceeding.</a></p>
                 <div class="button">
                     <input type="submit" value="Book Appointment">
@@ -81,6 +89,14 @@
 
 </div>
   
+  <?php
+
+  $month = date('m');
+  $day = date('d');
+  $year = date('Y');
+
+  $today = $year . '-' . $month . '-' . $day;
+  ?>
 <!-- end here -->
 
 {% endblock %}
