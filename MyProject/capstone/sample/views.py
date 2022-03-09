@@ -211,3 +211,16 @@ class ViewAppointmentView(View):
 class AdviserLoginView(View):
 		def get(self, request):
 			return render(request, 'loginAdviser.html')
+
+
+class AdviserAboutView(View):
+		def get(self, request):
+			return render(request, 'aabout.html')
+
+class AdviserContactView(View):
+		def get(self, request):
+			return render(request, 'acontact.html')
+			
+class AdviserSettingView(View):
+		def get(self, request):
+			return render(request, 'asetting.html')
