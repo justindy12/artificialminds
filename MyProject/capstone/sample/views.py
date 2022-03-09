@@ -146,15 +146,33 @@ class AdviserHomeView(View):
 
 class AboutView(View):
 		def get(self, request):
-			return render(request, 'about.html')
+			students = Student.objects.all()
+
+			for student in students:
+				if(student.isLoggedIn == True):
+					return render(request, 'about.html', {'student':student})
+
+			return redirect('sample:login')		
 
 class ContactView(View):
 		def get(self, request):
-			return render(request, 'contact.html')
+			students = Student.objects.all()
+
+			for student in students:
+				if(student.isLoggedIn == True):
+					return render(request, 'contact.html', {'student':student})
+
+			return redirect('sample:login')		
 			
 class SettingView(View):
 		def get(self, request):
-			return render(request, 'setting.html')
+			students = Student.objects.all()
+
+			for student in students:
+				if(student.isLoggedIn == True):
+					return render(request, 'setting.html', {'student':student})
+
+			return redirect('sample:login')		
 	
 class LogoutView(View):
 	def get(self, request):
@@ -215,12 +233,30 @@ class AdviserLoginView(View):
 
 class AdviserAboutView(View):
 		def get(self, request):
-			return render(request, 'aabout.html')
+			advisers = Adviser.objects.all()
+
+			for adviser in advisers:
+				if(adviser.isLoggedIn == True):
+					return render(request, 'aabout.html', {'adviser':adviser})
+
+			return redirect('sample:alogin')
 
 class AdviserContactView(View):
 		def get(self, request):
-			return render(request, 'acontact.html')
+			advisers = Adviser.objects.all()
+
+			for adviser in advisers:
+				if(adviser.isLoggedIn == True):
+					return render(request, 'acontact.html', {'adviser':adviser})
+
+			return redirect('sample:alogin')
 			
 class AdviserSettingView(View):
 		def get(self, request):
-			return render(request, 'asetting.html')
+			advisers = Adviser.objects.all()
+
+			for adviser in advisers:
+				if(adviser.isLoggedIn == True):
+					return render(request, 'asetting.html', {'adviser':adviser})
+
+			return redirect('sample:alogin')
