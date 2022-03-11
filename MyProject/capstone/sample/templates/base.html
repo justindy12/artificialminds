@@ -24,12 +24,10 @@
             <ul>
               <li style="color: white; margin-right: 20px; font-size: 12px; pointer-events: none;">
                 
-                {% if student.isLoggedIn == True %}
-                      Welcome, {{student.firstname}}
+                {% if students.isLoggedIn == True %}
+                      Welcome, {{students.firstname}}
                 {% endif %}
-                {% if adviser.isLoggedIn == True %}
-                      Welcome Adviser, {{adviser.firstname}}
-                {% endif %}
+    
               </li>
               <li>
                   <a class="{% block nav_home %}{% endblock %}" href="{% url 'sample:home' %}"><i class="fa-solid fa-house-chimney"></i>Home</a>

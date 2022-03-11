@@ -23,12 +23,9 @@
              
             <ul>
               <li style="color: white; margin-right: 20px; font-size: 12px; pointer-events: none;">
-                
-                {% if student.isLoggedIn == True %}
-                      Welcome, {{student.firstname}}
-                {% endif %}
-                {% if adviser.isLoggedIn == True %}
-                      Welcome Adviser, {{adviser.firstname}}
+              
+                {% if advisers.isLoggedIn == True %}
+                      Welcome Adviser, {{advisers.firstname}}
                 {% endif %}
               </li>
               <li>

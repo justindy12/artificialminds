@@ -32,7 +32,7 @@
         <div class="content">
             <form action="#" method="POST">
                 {% csrf_token %}
-                <input type="text" name="student_id" value="{{student.id}}" hidden>
+                <input type="text" name="student_id" value="{{students.id}}" hidden>
                 <div class="meeting">
                     <span class="meeting-title"><strong>Type of Meeting</strong></span>
                     <p style="font-size: 10px;">Choose one to proceed:</p>
@@ -60,7 +60,7 @@
                     <p style="font-size: 14px;"><i>Available Counselors</i></p>
                     <select name="meeting_counselor" id="counselor">
                         {% for qs in adviser %}
-                        <option value="{{qs.firstname}}{{qs.lastname}}">{{qs.firstname}} {{qs.lastname}}</option>
+                        <option value="{{qs.id}}">{{qs.firstname}} {{qs.lastname}}</option>
                         {% endfor %}                 
                     </select>
                 </div>
@@ -68,18 +68,10 @@
                 <br>
                 <p style="font-size: 14px;"><strong>Date and Time of Appointment</strong></p>
                 <input type ="date" name="meeting_date" value="<?php echo $today; ?>">
-                <select name="meeting_time" id='time'>
-                    <option value="8:00 am">8:00 am</option>
-                    <option value="9:00 am">9:00 am</option>
-                    <option value="10:00 am">10:00 am</option>
-                    <option value="11:00 am">11:00 am</option>
-                    <option value="1:00 pm">1:00 pm</option>
-                    <option value="2:00 pm">2:00 pm</option>
-                    <option value="3:00 pm">3:00 pm</option>
-                    <option value="4:00 pm">4:00 pm</option>
-                </select>
+                <input type= "time" name="meeting_time">
+                
 
-                <p style="font-size: 12px; padding-top: 80px;">Please review your appointment before proceeding.</a></p>
+                 <p style="font-size: 12px; padding-top: 80px;">Please review your appointment before proceeding.</a></p>
                 <div class="button">
                     <input type="submit" value="Book Appointment">
                 </div>

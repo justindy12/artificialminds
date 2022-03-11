@@ -26,7 +26,8 @@
 				<th style="width: 50px;">ID</th>
 				<th>Student Name</th>
 				<th>Meeting Type</th>
-				<th style="width: 100px;">Urgency</th>
+				<th style="width: 100px;">Date</th>
+				<th style="width: 100px;">Time</th>
 				<th style="width: 180px;">Action</th>
 			  </tr>
 			</thead>
@@ -36,16 +37,19 @@
 		  <table cellpadding="0" cellspacing="0" border="0">
 			  <!--JUS, loop nlng from database. Example rana sa sud sa "td"-->
 			<tbody>
+				{% for qs in appointments %}
 			  <tr>
-				<td style="width: 50px;">1</td>
-				<td>Carl Cordova</td>
-				<td>Live</td>
-				<td style="width: 100px;">Now</td>
+				<td style="width: 50px;">{{qs.id}}</td>
+				<td>{{qs.student.firstname}} {{qs.student.lastname}}</td>
+				<td>{{qs.meeting_type}}</td>
+				<td style="width: 100px;">{{qs.meeting_date}}</td>
+				<td style="width: 100px;">{{qs.meeting_time}}</td>
 				<td style="width: 180px;">
 					<button class="btn">Approve</button>
 					<button class="btn1">Reshedule</button>
 				</td>
-			  </tr>			  
+			  </tr>		
+			  	{% endfor %}	  
 			</tbody>
 		  </table>
 		</div>
