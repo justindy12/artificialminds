@@ -74,7 +74,7 @@ class AdviserRegistrationView(View):
 					form = Adviser(firstname=firstname, lastname=lastname, idnum = idnum, email = email, contact = contact, password = password)	
 					form.save()
 					print('adviser created')
-					return redirect('sample:login')
+					return redirect('sample:alogin')
 
 def login(request):
 	if request.method == 'POST':
@@ -136,18 +136,18 @@ class HomeView(View):
 
 class AdviserHomeView(View):
 	def get(self, request):
-		adviser = Adviser.objects.all()
+		adviser_online = Adviser.objects.get(isLoggedIn = True)
 		student = Student.objects.all()
-		appointment = Appointment.objects.all()
+		appointment = Appointment.objects.filter(meeting_counselor=adviser_online.adviserID)
 
-		for adviser in adviser:
-			if(adviser.isLoggedIn == True):
-				context ={
-					'advisers':adviser,
-					'students':student,
-					'appointments':appointment,
-				}
-				return render(request, 'homeAdviser.html', {'students':student, 'advisers':adviser, 'appointments':appointment})
+		context ={
+			'advisers':adviser_online,
+			'students':student,
+			'appointments':appointment,
+		}
+
+		if(adviser_online.isLoggedIn == True):
+			return render(request, 'homeAdviser.html', context)
 
 class AboutView(View):
 		def get(self, request):
@@ -203,13 +203,9 @@ class SetAppointmentView(View):
 
 			for student in students:
 				if(student.isLoggedIn == True):
-					context ={
-						'adviser':advisers,
-						'student':students,
-					}
-					return render(request, 'setappointment.html', {'students':student, 'adviser':advisers})
+					return render(request, 'setappointment.html', {'student':student, 'adviser':advisers})
 
-		def post(seld, request):
+		def post(self, request):
 			form = AppointmentForm(request.POST)
 
 			if form.is_valid():
@@ -226,22 +222,24 @@ class SetAppointmentView(View):
 				return redirect('sample:home')
 			
 			else:
-				return redirect('sample:setappointment ')
+				return redirect('sample:setappointment')
 
 class ViewAppointmentView(View):
 		def get(self, request):
 			adviser = Adviser.objects.all()
-			student = Student.objects.all()
-			appointment = Appointment.objects.filter(student_id=1)
+			student_online = Student.objects.get(isLoggedIn = True)
+			appointment = Appointment.objects.filter(student = student_online.studentID)
 
-			for student in student:
-				if(student.isLoggedIn == True):
-					context ={
-						'advisers':adviser,
-						'students':student,
-						'appointments':appointment,
-					}
-					return render(request, 'viewappointment.html', {'students':student, 'advisers':adviser, 'appointments':appointment})
+			context ={
+				'advisers':adviser,
+				'students':student_online,
+				'appointments':appointment,
+			}
+
+			if(student_online.isLoggedIn == True):
+				return render(request, 'viewappointment.html', context)
+
+			return redirect('sample:login')
 
 class AdviserLoginView(View):
 		def get(self, request):

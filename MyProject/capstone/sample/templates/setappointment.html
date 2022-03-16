@@ -32,7 +32,7 @@
         <div class="content">
             <form action="#" method="POST">
                 {% csrf_token %}
-                <input type="text" name="student_id" value="{{students.id}}" hidden>
+                <input type="text" name="student_id" value="{{student.studentID}}" hidden>
                 <div class="meeting">
                     <span class="meeting-title"><strong>Type of Meeting</strong></span>
                     <p style="font-size: 10px;">Choose one to proceed:</p>
@@ -50,17 +50,16 @@
                     <p style="font-size: 14px;"><i>Available Counselors</i></p>
                     <select name="meeting_counselor" id="counselor">
                         {% for qs in adviser %}
-                        <option value="{{qs.firstname}}{{qs.lastname}}">{{qs.firstname}} {{qs.lastname}}</option>
+                        <option value="{{qs.adviserID}}">{{qs.firstname}} {{qs.lastname}}</option>
                         {% endfor %}
                        
                     </select>
                 </div>
-
                 <div class="later msg" style="padding-top: 5px;" hidden>
                     <p style="font-size: 14px;"><i>Available Counselors</i></p>
                     <select name="meeting_counselor" id="counselor">
                         {% for qs in adviser %}
-                        <option value="{{qs.id}}">{{qs.firstname}} {{qs.lastname}}</option>
+                        <option value="{{qs.adviserID}}">{{qs.firstname}} {{qs.lastname}}</option>
                         {% endfor %}                 
                     </select>
                 </div>
