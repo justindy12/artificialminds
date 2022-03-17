@@ -211,12 +211,11 @@ class SetAppointmentView(View):
 			if form.is_valid():
 				student_id = request.POST['student_id']
 				meeting_type = request.POST['meeting_type']
-				meeting_urgency = request.POST['meeting_urgency']
 				meeting_counselor_id = request.POST['meeting_counselor']
 				meeting_date = request.POST['meeting_date']
 				meeting_time = request.POST['meeting_time']
 
-				form = Appointment(meeting_type=meeting_type, meeting_urgency=meeting_urgency, meeting_counselor_id=meeting_counselor_id, meeting_date=meeting_date, meeting_time=meeting_time, student_id=student_id)
+				form = Appointment(meeting_type=meeting_type, meeting_counselor_id=meeting_counselor_id, meeting_date=meeting_date, meeting_time=meeting_time, student_id=student_id)
 				form.save()
 				print('appointment saved')
 				return redirect('sample:home')

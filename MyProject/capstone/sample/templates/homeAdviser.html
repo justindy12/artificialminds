@@ -23,12 +23,10 @@
 		  <table cellpadding="0" cellspacing="0" border="0">
 			<thead>
 			  <tr>
-				<th style="width: 50px;">ID</th>
-				<th>Student Name</th>
-				<th>Meeting Type</th>
-				<th style="width: 100px;">Date</th>
+				<th style="width: 100px;">Meeting Type</th>
+				<th style="width: 120px;">Date</th>
 				<th style="width: 100px;">Time</th>
-				<th style="width: 180px;">Action</th>
+				<th style="width: 150px;">Action</th>
 			  </tr>
 			</thead>
 		  </table>
@@ -39,12 +37,10 @@
 			<tbody>
 				{% for qs in appointments %}
 			  <tr>
-				<td style="width: 50px;">{{qs.appointmentID}}</td>
-				<td>{{qs.student.firstname}} {{qs.student.lastname}}</td>
-				<td>{{qs.meeting_type}}</td>
-				<td style="width: 100px;">{{qs.meeting_date}}</td>
+				<td style="width: 100px;">{{qs.meeting_type}}</td>
+				<td style="width: 120px;">{{qs.meeting_date}}</td>
 				<td style="width: 100px;">{{qs.meeting_time}}</td>
-				<td style="width: 180px;">
+				<td style="width: 150px;">
 					<button class="btn">Approve</button>
 					<button class="btn1">Reshedule</button>
 				</td>
@@ -53,70 +49,69 @@
 			</tbody>
 		  </table>
 		</div>
-	  </section>
+	</section>
 
     <!-- Section 2 -->
-    <section style="padding-left: 20px;">
-		<h1 style="margin-left: 20px;">Student Status</h1>
+    <section>
+		<h1 style="margin-left: 20px;">Approved Appointments</h1>
 		<br>
-		<div class="tbl-header1">
+		<div class="tbl-header">
 			<table cellpadding="0" cellspacing="0" border="0" class="table2">
 				<thead>
 				<tr>
-					<th style="width: 160px;">Student Name</th>
-					<th style="width: 120px;">Status</th>
-					<th>Profile</th>
+					<th style="width: 120px;">Urgency</th>
+					<th style="width: 100px;">Date</th>
+					<th style="width: 120px;">Time</th>
+					<th style="width: 140px;">Meeting Type</th>
+					<th>Action</th>
 				</tr>
 				</thead>
 			</table>
 			</div>
-			<div class="tbl-content1">
+			<div class="tbl-content">
 			<table cellpadding="0" cellspacing="0" border="0">
 				<tbody>
-				<tr>
-					<td style="width: 160px;">Carl Cordova</td>
-					<td style="width: 120px;">Red Flag</td>
-					<td> 
-						<button class="btn2">View</button>
-					</td>
+				<tr>					
+					<td style="width: 120px;">Now</td>
+					<td style="width: 100px;">Date</td>
+					<td style="width: 120px;">Time</td>
+					<td style="width: 140px;">Live</td>
+					<td> <button class="btn3">Start</button></td>
 				</tr>			  
 				</tbody>
 			</table>
 		</div>
-</section>
-<div class="approve">
-	<h1 style="margin-left: 20px;">Approved Appointments</h1>
+	</section>
+	
+    <!-- Section 3 -->
+    
+    <section style="margin-left: 400px;">
+		<h1 style="margin-left: 20px;">Student Status</h1>
 		<br>
-		<div class="tbl-header2">
-		  <table cellpadding="0" cellspacing="0" border="0">
-			<thead>
-			  <tr>
-				<th style="width: 50px;">ID</th>
-				<th style="width: 200px;">Student Name</th>
-				<th style="width: 330px;">Schedule</th>
-				<th style="width: 140px;">Meeting Type</th>
-				<th style="width: 120px;">Urgency</th>
-				<th>Action</th>
-			  </tr>
-			</thead>
-		  </table>
+		<div class="tbl-header">
+			<table cellpadding="0" cellspacing="0" border="0" class="table2">
+				<thead>
+				<tr>
+					<th style="width: 120px;">Student Name</th>
+					<th style="width: 120px;">Status</th>
+					<th style="width: 120px;">Details</th>
+				</tr>
+				</thead>
+			</table>
+			</div>
+			<div class="tbl-content">
+			<table cellpadding="0" cellspacing="0" border="0">
+				<tbody>
+				<tr>					
+					<td style="width: 120px;">Carl Cordova</td>
+					<td style="width: 120px;">Red Flag</td>
+					<td style="width: 120px;"> <button class="btn4">View</button></td>
+				</tr>			  
+				</tbody>
+			</table>
 		</div>
-		<div class="tbl-content2">
-		  <table cellpadding="0" cellspacing="0" border="0">
-			  <!--JUS, loop nlng from database. Example rana sa sud sa "td"-->
-			<tbody>
-			  <tr>
-				<td style="width: 50px;">1</td>
-				<td style="width: 200px;">Carl Cordova</td>
-				<td style="width: 330px;">Date & Time</td>
-				<td style="width: 140px;">Live</td>
-				<td style="width: 120px;">Now</td>
-				<td> <button class="btn3">Start Meeting</button></td>
-			  </tr>			  
-			</tbody>
-		  </table>
-		</div>
-</div>
+	</section>
+</section>
 <script>
 	$(window).on("load resize ", function() {
 		var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
