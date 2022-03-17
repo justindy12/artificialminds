@@ -20,4 +20,4 @@ class AppointmentForm(forms.ModelForm):
 
 	class Meta:
 		model = Appointment
-		fields = ('meeting_type','meeting_urgency','meeting_time','meeting_date','meeting_counselor')
+		fields = ('meeting_type','meeting_time','meeting_date','meeting_counselor')

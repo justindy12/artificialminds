@@ -51,6 +51,18 @@ header ul li a {
     text-decoration: none;
 }
 
+
+header ul li a.button {
+    background-color: #002BDC; 
+    padding: 8px 30px; 
+    border-radius: 20px; 
+    color: white;
+}
+header ul li a.button:hover {
+    box-shadow: 0 8px 10px 0 rgba(0,0,0,0.24);
+}
+
+
 .content {
     position: relative;
     width: 100%;
@@ -446,9 +458,33 @@ form input[type="submit"]:hover{
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
+
+  .modal1 {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 200px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
   
   /* Modal Content */
   .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0px 20px;
+    border: 1px solid #888;
+    width: 670px;
+    height: 400px;
+    border-radius: 10px;
+  }
+
+  .modal-content1 {
     background-color: #fefefe;
     margin: auto;
     padding: 0px 20px;
@@ -473,9 +509,8 @@ form input[type="submit"]:hover{
     cursor: pointer;
   }
 
-  .content .myBtn {
+.content .myBtn {
     background-color: #002BDC; 
-    color: black; 
     border: 2px solid #002BDC;
     padding: 8px 30px;
     font-size: 16px;
@@ -569,3 +604,35 @@ input[type=checkbox] {
     right: 26px;
 }
 
+.popup__wrapper a.student_btn {
+    align-items: center; 
+    text-align: center; 
+    margin-left: 80px;
+    margin-top: 50px;
+    border: 2px solid #002BDC; 
+    background: white; 
+    border-radius: 50%;
+    padding-left: 50px; 
+    padding-right: 50px; 
+    padding-bottom: 25px; 
+    padding-top: 25px;
+}
+.popup__wrapper a.student_btn:hover{
+    box-shadow: 0px 0px 25px 0px #0693E3;
+}
+.popup__wrapper a.adviser_btn {
+    align-items: center; 
+    text-align: center; 
+    margin-top: 50px;
+    border: 2px solid #002BDC; 
+    background: white; 
+    border-radius: 50%;
+    padding-left: 50px; 
+    padding-right: 50px; 
+    padding-bottom: 25px; 
+    padding-top: 25px;
+}
+
+.popup__wrapper a.adviser_btn:hover{
+    box-shadow: 0px 0px 25px 0px #0693E3;
+}

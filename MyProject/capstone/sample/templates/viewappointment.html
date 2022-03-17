@@ -17,22 +17,20 @@
 				<table>
 					<thead>
 						<tr class="table100-head">
-							<th class="column1">Appointment ID</th>
-							<th class="column2">Type</th>
 							<th class="column2">Counselor</th>
 							<th class="column2">Date</th>
 							<th class="column4">Time</th>
+							<th class="column2">Type</th>
 							<th class="column3">Status</th>	
 						</tr>
 					</thead>
 					<tbody>
 						{% for qs in appointments %}
 							<tr>
-								<td class="column1">{{qs.appointmentID}}</td> <!--appointment id-->
-								<td class="column4">{{qs.meeting_type}}</td> <!--Status Request-->
 								<td class="column4">{{qs.meeting_counselor.firstname}} {{qs.meeting_counselor.lastname}}</td> <!--Status Request-->
 								<td class="column2">{{qs.meeting_date}}</td> <!--appointment id-->
 								<td class="column3">{{qs.meeting_time}}</td> <!--Type of Meetong-->
+								<td class="column4">{{qs.meeting_type}}</td> <!--Status Request-->
 								<td class="column3">{{qs.is_Approved}}</td> <!--Type of Meetong-->
 								</td>
 							</tr>	
