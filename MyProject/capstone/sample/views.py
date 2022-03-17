@@ -149,6 +149,17 @@ class AdviserHomeView(View):
 		if(adviser_online.isLoggedIn == True):
 			return render(request, 'homeAdviser.html', context)
 
+
+	def post(self, request):
+		if request.method == 'POST':
+			if 'btnApprove' in request.POST:
+				print('approve button clicked')
+				sid = request.POST.get("sid")
+				print(sid)
+				update_appointment_status = Appointment.objects.filter(appointmentID = sid).update(is_Approved = 1)
+
+				print('appointment approved')
+				return redirect('sample:ahome')
 class AboutView(View):
 		def get(self, request):
 			students = Student.objects.all()
@@ -203,7 +214,7 @@ class SetAppointmentView(View):
 
 			for student in students:
 				if(student.isLoggedIn == True):
-					return render(request, 'setappointment.html', {'student':student, 'adviser':advisers})
+					return render(request, 'setappointment.html', {'students':student, 'adviser':advisers})
 
 		def post(self, request):
 			form = AppointmentForm(request.POST)

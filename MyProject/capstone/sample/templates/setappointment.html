@@ -32,7 +32,7 @@
         <div class="content">
             <form action="#" method="POST">
                 {% csrf_token %}
-                <input type="text" name="student_id" value="{{student.studentID}}" hidden>
+                <input type="text" name="student_id" value="{{students.studentID}}" hidden>
                 <div class="meeting">
                     <span class="meeting-title"><strong>Type of Meeting</strong></span>
                     <p style="font-size: 10px;">Choose one to proceed:</p>
@@ -40,33 +40,9 @@
                        <input type="radio" name="meeting_type" value="live"> Live
                        <input type="radio" name="meeting_type" value="chat"> Chat<br>
                     </div>
-                    <br>
-                    <p style="font-size: 14px;"><strong>Available Counselors</strong></p>
-                    <select name="meeting_counselor" id="counselor">
-                        {% for qs in adviser %}
-                        <option value="{{qs.adviserID}}">{{qs.firstname}} {{qs.lastname}}</option>
-                        {% endfor %}                 
-                    </select>
-                    <br><br>
-                    <p style="font-size: 14px;"><strong>Date and Time of Appointment</strong></p>
-                    <input type ="date" name="meeting_date" value="<?php echo $today; ?>">
-                    <input type= "time" name="meeting_time">
                 </div>
-
-                <!-- <br>
-                <p style="font-size: 15px;"><strong>Urgency & Schedule</strong></p>
-                <input type="radio" name="meeting_urgency" value="now"> Now
-                <input type="radio" name="meeting_urgency" value="later"> Later
-                <div class="now msg" style="padding-top: 5px;" hidden   >
-                    <p style="font-size: 14px;"><i>Available Counselors</i></p>
-                    <select name="meeting_counselor" id="counselor">
-                        {% for qs in adviser %}
-                        <option value="{{qs.adviserID}}">{{qs.firstname}} {{qs.lastname}}</option>
-                        {% endfor %}
-                       
-                    </select>
-                </div>
-                <div class="later msg" style="padding-top: 5px;" hidden>
+               
+                <div class="" style="padding-top: 5px;">
                     <p style="font-size: 14px;"><i>Available Counselors</i></p>
                     <select name="meeting_counselor" id="counselor">
                         {% for qs in adviser %}
@@ -78,7 +54,7 @@
                     <input type ="date" name="meeting_date" value="<?php echo $today; ?>">
                     <input type= "time" name="meeting_time">
                 </div>
-                 -->
+             
 
                  <p style="font-size: 12px; padding-top: 50px;">Please review your appointment before proceeding.</a></p>
                 <div class="button">
