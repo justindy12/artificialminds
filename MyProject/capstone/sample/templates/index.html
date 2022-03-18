@@ -8,83 +8,218 @@
   <meta name="copyright" content="MACode ID, https://macodeid.com/">
   <title>ArtificialMinds</title>
   <link rel="shortcut icon" type="image/png" href="../static/img/images/favicon1.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
   <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
-  <section>
-    <div class="circle">
-    </div>
-    <header>
-        <a href="#"><img src="../static/img/images/logoV2.png" class="logo"></a>
-        <ul>
-            <li><a href="#" style="padding-top: 10px;">Services</a></li>
-            <li><a href="#" style="padding-top: 10px;">About</a></li>
-            <!-- <li><a href="{% url 'sample:login' %}"><strong>Sign in</strong></a></li> -->
-            <li>
-              <a class="button" href="#modal1">Sign In</a>
-              <div class="popup" id="modal1">
-                    <a class="popup__overlay"></a>
-                    <div class="popup__wrapper">
-                        <a class="popup__close" href="#" style="font-size: 20px;">&times;</a>
+  <div class="body">
+    <section id="home">
+      <div class="circle"></div>
+      <header>
+          <a href="#"><img src="../static/img/images/logoV2.png" class="logo"></a>
+          <ul>
+              <li><a href="#service" style="padding-top: 10px;">Services</a></li>
+              <li><a href="#about" style="padding-top: 10px;">About</a></li>
+              <li><a href="#contact" style="padding-top: 10px;">Contact</a></li>
+              <!-- <li><a href="{% url 'sample:login' %}"><strong>Sign in</strong></a></li> -->
+              <li>
+                <a class="button" href="#modal1">Sign In</a>
+                <div class="popup" id="modal1">
+                      <a class="popup__overlay"></a>
+                      <div class="popup__wrapper">
+                          <a class="popup__close" href="#" style="font-size: 20px;">&times;</a>
+      
+                          <h4 style="text-align: center;">Choose one to proceed</h4>
+                          
+                          <!-- this link below redirects to USER LOGIN -->
+                          <a href="{% url 'sample:login' %}" class="student_btn">
+                            <img src="../static/img/images/student.png" width="100" height="100"><p style="color: #002BDC; font-weight: 500;">Student</p>
+                          </a>
+                          <!-- this link below redirects to ADVISER LOGIN -->
+                          <a href="{% url 'sample:alogin' %}" class="adviser_btn">
+                            <img src="../static/img/images/teacher.png" width="100" height="100"><p style="color: #002BDC; font-weight: 500;">Adviser</p>
+                          </a>
+                      </div>
+                  </div>
+              </li>
+          </ul>
+          
+      </header>
+      <div class="content">
+          <div class="textBox">
+              <h1><span>CHEER APP</span></h1>
+              <h2>Minimum <span>EFFORT.</span><br>Maximum <span>SATISFACTION.</span></h2>
+              <br><p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                  Quam quod fugit cumque animi aperiam optio ut nesciunt 
+                  sed ea expedita rem unde laboriosam cupiditate ipsa, 
+                  vero reprehenderit distinctio? Animi, labore?</p><br>
+                  <!-- Trigger/Open The Modal -->
+                  
+                  <button id="myBtn" class="myBtn">Get Started</button>
+  
+                  <!-- The Modal -->
+                  <div id="myModal" class="modal">
+  
+                      <!-- Modal content -->
+                      <div class="modal-content">
+                          <span class="close">&times;</span><br><br>
+                          <h4 style="text-align: center;">Select one to proceed</h4>
+                          <!-- this link below redirects to USER REGISTRATION -->
+                          <a href="{% url 'sample:register' %}" style="margin-right: -100px; margin-left: 50px;"><img src="../static/img/images/student.png" width="200" height="180"><p>Student</p></a>
+  
+  
+                          
+                          <!-- this link below redirects to ADVISER REGISTRATION -->
+                          <a href="{% url 'sample:aregister' %}"><img src="../static/img/images/teacher.png" width="200" height="180"><p>Adviser</p></a>
+                      </div>
+  
+                  
+                  </div>
+              <div class="imgBox">
+                  <img src="../static/img/images/img1.png" class="img1">
+              </div> 
+          </div>
+          <ul class="sci">
+              <li><a href="#"><img src="../static/img/images/facebook.png"></a></li>
+              <li><a href="#"><img src="../static/img/images/instagram.png"></a></li>
+              <li><a href="#"><img src="../static/img/images/twitter.png"></a></li>
+          </ul>
+      </div>
+    </section>
+    <section id="service">
+      <div class="circle1">
+      </div>
+        <div class="services">
+          <h1>Services</h1>
+          <div class="line">
+            <hr>
+          </div>
+          <div class="cen">
+            <div class="service">
+              <i class="fas fa-anchor"></i>
+              <h2>Service Name</h2>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
     
-                        <h4 style="text-align: center;">Choose one to proceed</h4>
-                        
-                        <!-- this link below redirects to USER LOGIN -->
-                        <a href="{% url 'sample:login' %}" class="student_btn">
-                          <img src="../static/img/images/student.png" width="100" height="100"><p style="color: #002BDC; font-weight: 500;">Student</p>
-                        </a>
-                        <!-- this link below redirects to ADVISER LOGIN -->
-                        <a href="{% url 'sample:alogin' %}" class="adviser_btn">
-                          <img src="../static/img/images/teacher.png" width="100" height="100"><p style="color: #002BDC; font-weight: 500;">Adviser</p>
-                        </a>
-                    </div>
-                </div>
-            </li>
-        </ul>
-        
-    </header>
-    <div class="content">
-        <div class="textBox">
-            <h2>Minimum <span>EFFORT.</span><br>Maximum <span>SATISFACTION.</span></h2>
-            <br><p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                Quam quod fugit cumque animi aperiam optio ut nesciunt 
-                sed ea expedita rem unde laboriosam cupiditate ipsa, 
-                vero reprehenderit distinctio? Animi, labore?</p><br>
-                <!-- Trigger/Open The Modal -->
-                
-                <button id="myBtn" class="myBtn">Get Started</button>
-
-                <!-- The Modal -->
-                <div id="myModal" class="modal">
-
-                    <!-- Modal content -->
-                    <div class="modal-content">
-                        <span class="close">&times;</span><br><br>
-                        <h4 style="text-align: center;">Select one to proceed</h4>
-                        <!-- this link below redirects to USER REGISTRATION -->
-                        <a href="{% url 'sample:register' %}" style="margin-right: -100px; margin-left: 50px;"><img src="../static/img/images/student.png" width="200" height="180"><p>Student</p></a>
-
-
-                        
-                        <!-- this link below redirects to ADVISER REGISTRATION -->
-                        <a href="{% url 'sample:aregister' %}"><img src="../static/img/images/teacher.png" width="200" height="180"><p>Adviser</p></a>
-                    </div>
-
-                
-                </div>
-            <div class="imgBox">
-                <img src="../static/img/images/img1.png" class="img1">
-            </div> 
+            <div class="service">
+              <i class="fab fa-android"></i>
+              <h2>Service Name</h2>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+    
+            <div class="service">
+              <i class="fab fa-angellist"></i>
+              <h2>Service Name</h2>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+    
+            <div class="service">
+              <i class="fas fa-apple-alt"></i>
+              <h2>Service Name</h2>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+    
+            <div class="service">
+              <i class="fas fa-archway"></i>
+              <h2>Service Name</h2>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+    
+            <div class="service">
+              <i class="far fa-angry"></i>
+              <h2>Service Name</h2>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            </div>
+          </div>
         </div>
-        <ul class="sci">
-            <li><a href="#"><img src="../static/img/images/facebook.png"></a></li>
-            <li><a href="#"><img src="../static/img/images/instagram.png"></a></li>
-            <li><a href="#"><img src="../static/img/images/twitter.png"></a></li>
-        </ul>
-    </div>
-</section>
-
-
+    </section>
+    <section id="about">
+        <div class="abouttext">
+          <div class="aboutus">
+            <h1><span>ABOUT US</span></h1>
+          </div>
+          <div class="line">
+            <hr>
+          </div>
+          <div class="phrase">
+            <p>
+              CheerApp by ArtificialMinds is a .....lorem 
+              ipsum dolor sit, amet consectetur adipisicing elit. 
+              Quam quod fugit cumque animi aperiam optio ut nesciunt 
+              sed ea expedita rem unde laboriosam cupiditate ipsa, 
+              vero reprehenderit distinctio? Animi, labore?
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+              Ratione doloremque debitis qui nemo placeat, vel nulla. 
+              Doloremque ipsam soluta dolore sunt incidunt. 
+              Cumque et itaque earum laborum explicabo beatae! 
+              A.Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+              Quam quod fugit cumque animi aperiam optio ut nesciunt 
+              sed ea expedita rem unde laboriosam cupiditate ipsa, 
+              vero reprehenderit distinctio? Animi, labore?
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+              Ratione doloremque debitis qui nemo placeat, vel nulla. 
+              Doloremque ipsam soluta dolore sunt incidunt. 
+              Cumque et itaque earum laborum explicabo beatae! A.
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+              Quam quod fugit cumque animi aperiam optio ut nesciunt 
+              sed ea expedita rem unde laboriosam cupiditate ipsa, 
+              vero reprehenderit distinctio? Animi, labore?
+            </p>
+          </div>
+          
+          <br>
+      </div>
+        <p></p>
+    </section>
+    
+    <section id="contact">
+      <div class="containner">
+        <div class="content">
+          <div class="left-side">
+            <div class="address details">
+              <i class="fas fa-map-marker-alt"></i>
+              <div class="topic">Address</div>
+              <div class="text-one">Cebu City Cebu</div>
+              <div class="text-two">Philippines 6000</div>
+            </div>
+            <div class="phone details">
+              <i class="fas fa-phone-alt"></i>
+              <div class="topic">Phone</div>
+              <div class="text-one">261-7741​</div>
+              <div class="text-two">411-2000</div>
+            </div>
+            <div class="email details">
+              <i class="fas fa-envelope"></i>
+              <div class="topic">Email</div>
+              <div class="text-one">artificialmins@cit.edu</div>
+              <div class="text-two">cheerapp@gmail.com</div>
+            </div>
+          </div>
+          <div class="right-side">
+            <div class="topic-text">Send us a message</div>
+            <p style="font-size: 14px; font-weight: 100;">If you have any concerns about your experiene from using this application or any types of queries related, you can send us a message from here. It's our pleasure to help you.</p>
+          <form action="#">
+            <div class="input-box">
+              <input type="text" placeholder="Enter your name">
+            </div>
+            <div class="input-box">
+              <input type="text" placeholder="Enter your email">
+            </div>
+            <div class="input-box message-box">
+              <textarea placeholder="Enter your message"></textarea>
+            </div>
+            <div class="button">
+              <input type="button" value="Send Now" >
+            </div>
+          </form>
+        </div>
+        </div>
+      </div>
+    </section>
+    <section id="footer">
+      <footer> Copyright @ 2022 <strong>Artificial Minds</strong> All Rights Reserved</footer>
+    </section>
+  </div>
 <script>
     // Get the modal
     var modal = document.getElementById("myModal");
