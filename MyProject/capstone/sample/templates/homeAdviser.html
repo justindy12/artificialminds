@@ -8,6 +8,20 @@
     <link rel="stylesheet" type="text/css" href="../static/css/homeAdviser.css">
 	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.css">
+    <link rel = "stylesheet" href = "https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+            <script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+            <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+            <script src = "https://code.jquery.com/jquery-3.5.1.js"></script>
+            <script src ="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+            <script src ="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     {% endblock%}
 
     {% block nav_home %} active {% endblock %}
@@ -15,8 +29,6 @@
 {% block content %}
 <section class="indent-1">
     <!-- Section 1 --> 
-    <form action="#" method="POST">
-        {% csrf_token %}
     <section>
 		<!--for demo wrap-->
 		<h1 style="margin-left: 20px;">Lists of Requested Appointments</h1>
@@ -41,19 +53,46 @@
 				{% for qs in appointments %}
 			  <tr>
 			  	<td><input type="text" name="sid" value="{{qs.student_id}}" hidden></td>
+			  	<td><input type="text" name="aid" value="{{qs.meeting_counselor_id}}" hidden></td>
 				<td style="width: 100px;">{{qs.meeting_type}}</td>
 				<td style="width: 100px;">{{qs.student.firstname}} {{qs.student.lastname}}</td>
 				<td style="width: 100px;">{{qs.meeting_date}}</td>
 				<td style="width: 100px;">{{qs.meeting_time}}</td>
 				<td style="width: 190px;">
-					<button type ="submit" name="btnApprove" class="btn">Approve</button>
+					<button type="button" class="btn" data-toggle="modal" data-target="#exampleModal-{{qs.student_id}}{{qs.meeting_counselor_id}}">Approve</button>
 					<button class="btn1">Reschedule</button>
 				</td>
-			  </tr>		
-			  	{% endfor %}	  
+			  </tr>			  
 			</tbody>
+
+			<!--modal Approve-->
+	<div class="modal fade" id="exampleModal-{{qs.student_id}}{{qs.meeting_counselor_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Approval Confirmation</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>	
+           <form id="deleteForm" method="post">
+          	{% csrf_token %}
+          <div class="modal-body">
+          	<input type="text" name="sid" value="{{qs.student_id}}" hidden>
+          	<input type="text" name="aid" value="{{qs.meeting_counselor_id}}" hidden>
+            Are you sure you want to approve this request?
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" id="btnDelete" name="btnApprove">YES</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
+          </div>
+           </form>
+        </div>
+      </div>
+    </div>
+			{% endfor %}
 		  </table>
-		</div>
+	</div>
 	</section>
 
     <!-- Section 2 -->

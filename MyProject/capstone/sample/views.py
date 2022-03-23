@@ -158,8 +158,10 @@ class AdviserHomeView(View):
 			if 'btnApprove' in request.POST:	
 				print('approve button clicked')
 				sid = request.POST.get("sid")
+				aid = request.POST.get("aid")
 				print(sid)
-				update_appointment_status = Appointment.objects.filter(appointmentID = sid).update(is_Approved = 1)
+				print(aid)
+				update_appointment_status = Appointment.objects.filter(student_id = sid, meeting_counselor_id = aid).update(is_Approved = 1, meeting_status='approved')
 
 				print('appointment approved')
 				return redirect('sample:ahome')
