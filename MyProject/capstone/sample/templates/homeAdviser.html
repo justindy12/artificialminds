@@ -23,10 +23,18 @@
 		  <table cellpadding="0" cellspacing="0" border="0">
 			<thead>
 			  <tr>
+<<<<<<< Updated upstream
 				<th style="width: 100px;">Meeting Type</th>
 				<th style="width: 120px;">Date</th>
 				<th style="width: 100px;">Time</th>
 				<th style="width: 150px;">Action</th>
+=======
+				<th style="width: 120px;">Meeting Type</th>
+				<th style="width: 120px;">Name</th>
+				<th style="width: 100px;">Date</th>
+				<th style="width: 100px;">Time</th>
+				<th style="width: 200px;">Action</th>
+>>>>>>> Stashed changes
 			  </tr>
 			</thead>
 		  </table>
@@ -37,12 +45,22 @@
 			<tbody>
 				{% for qs in appointments %}
 			  <tr>
+<<<<<<< Updated upstream
 				<td style="width: 100px;">{{qs.meeting_type}}</td>
 				<td style="width: 120px;">{{qs.meeting_date}}</td>
 				<td style="width: 100px;">{{qs.meeting_time}}</td>
 				<td style="width: 150px;">
 					<button class="btn">Approve</button>
 					<button class="btn1">Reshedule</button>
+=======
+				<td style="width: 120px;">{{qs.meeting_type}}</td>
+				<td style="width: 120px;">{{qs.student.firstname}} {{qs.student.lastname}}</td>
+				<td style="width: 100px;">{{qs.meeting_date}}</td>
+				<td style="width: 100px;">{{qs.meeting_time}}</td>
+				<td style="width: 200px;">
+					<button type ="submit" name="btnApprove" class="btn">Approve</button>
+					<button class="btn1">Reschedule</button>
+>>>>>>> Stashed changes
 				</td>
 			  </tr>		
 			  	{% endfor %}	  
@@ -52,7 +70,7 @@
 	</section>
 
     <!-- Section 2 -->
-    <section>
+    <section style="margin-left: 100px;">
 		<h1 style="margin-left: 20px;">Approved Appointments</h1>
 		<br>
 		<div class="tbl-header">
