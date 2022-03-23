@@ -40,6 +40,7 @@
 			<tbody>
 				{% for qs in appointments %}
 			  <tr>
+			  	<td><input type="text" name="sid" value="{{qs.student_id}}" hidden></td>
 				<td style="width: 100px;">{{qs.meeting_type}}</td>
 				<td style="width: 100px;">{{qs.student.firstname}} {{qs.student.lastname}}</td>
 				<td style="width: 100px;">{{qs.meeting_date}}</td>
@@ -63,10 +64,10 @@
 			<table cellpadding="0" cellspacing="0" border="0" class="table2">
 				<thead>
 				<tr>
-					<th style="width: 120px;">Urgency</th>
+					<th style="width: 120px;">Meeting Type</th>
+					<th style="width: 120px;">Name</th>
 					<th style="width: 100px;">Date</th>
 					<th style="width: 120px;">Time</th>
-					<th style="width: 140px;">Meeting Type</th>
 					<th>Action</th>
 				</tr>
 				</thead>
@@ -75,13 +76,15 @@
 			<div class="tbl-content">
 			<table cellpadding="0" cellspacing="0" border="0">
 				<tbody>
+					{% for qs in approved %}
 				<tr>					
-					<td style="width: 120px;"></td>
-					<td style="width: 100px;"></td>
-					<td style="width: 120px;"></td>
-					<td style="width: 140px;"></td>
+					<td style="width: 120px;">{{qs.meeting_type}}</td>
+					<td style="width: 100px;">{{qs.student.firstname}} {{qs.student.lastname}}</td>
+					<td style="width: 100px;">{{qs.meeting_date}}</td>
+					<td style="width: 120px;">{{qs.meeting_time}}</td>
 					<td> <button class="btn3">Start</button></td>
-				</tr>			  
+				</tr>		
+					  {% endfor %}
 				</tbody>
 			</table>
 		</div>

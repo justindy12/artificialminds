@@ -138,21 +138,24 @@ class AdviserHomeView(View):
 	def get(self, request):
 		adviser_online = Adviser.objects.get(isLoggedIn = True)
 		student = Student.objects.all()
-		appointment = Appointment.objects.filter(meeting_counselor=adviser_online.adviserID)
+		appointment = Appointment.objects.filter(meeting_counselor=adviser_online.adviserID,is_Approved=0)
+		approved = Appointment.objects.filter(is_Approved = 1)
 
 		context ={
 			'advisers':adviser_online,
 			'students':student,
 			'appointments':appointment,
+			'approved':approved,
+			
 		}
-
+		
 		if(adviser_online.isLoggedIn == True):
 			return render(request, 'homeAdviser.html', context)
 
 
 	def post(self, request):
 		if request.method == 'POST':
-			if 'btnApprove' in request.POST:
+			if 'btnApprove' in request.POST:	
 				print('approve button clicked')
 				sid = request.POST.get("sid")
 				print(sid)
