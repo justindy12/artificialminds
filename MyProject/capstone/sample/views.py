@@ -159,12 +159,29 @@ class AdviserHomeView(View):
 				print('approve button clicked')
 				sid = request.POST.get("sid")
 				aid = request.POST.get("aid")
+				apid = request.POST.get("apid")
 				print(sid)
 				print(aid)
-				update_appointment_status = Appointment.objects.filter(student_id = sid, meeting_counselor_id = aid).update(is_Approved = 1, meeting_status='approved')
+				update_appointment_status = Appointment.objects.filter(student_id = sid, meeting_counselor_id = aid, appointmentID =apid).update(is_Approved = 1, meeting_status='approved')
 
 				print('appointment approved')
 				return redirect('sample:ahome')
+
+			elif 'btnUpdate' in request.POST:
+				print('Update Button Clicked')
+				sid = request.POST.get("sid")
+				aid = request.POST.get("aid")
+				apid = request.POST.get("apid")
+				meeting_date = request.POST.get("newdate")
+				meeting_time = request.POST.get("newtime")
+				print(meeting_date)
+				print(meeting_time)
+
+				update_appointment = Appointment.objects.filter(student_id = sid, meeting_counselor_id = aid, appointmentID = apid).update(meeting_date = meeting_date, meeting_time = meeting_time,is_Approved = 1, meeting_status='approved' )
+
+				print('appointment updated')
+				return redirect('sample:ahome')	
+			
 class AboutView(View):
 		def get(self, request):
 			students = Student.objects.all()

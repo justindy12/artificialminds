@@ -73,6 +73,7 @@
 								{% csrf_token %}
 								<input type="text" name="sid" value="{{qs.student_id}}" hidden>
               					<input type="text" name="aid" value="{{qs.meeting_counselor_id}}" hidden>
+              					<input type="text" name="apid" value="{{qs.appointmentID}}" hidden>
 								<button type="submit" class="btn_yes" id="btnDelete" name="btnApprove">YES</button>
 								<a href="{% url 'sample:ahome' %}"><button type="button" class="btn_no">NO</button></a>
 							</form>
@@ -90,6 +91,7 @@
 								{% csrf_token %}
 								<input type="text" name="sid" value="{{qs.student_id}}" hidden>
               					<input type="text" name="aid" value="{{qs.meeting_counselor_id}}" hidden>
+              					<input type="text" name="apid" value="{{qs.appointmentID}}" hidden>
 								<div class="date">
 									<label>Set Date</label>
 								  	<input type="Date" class="form-control" id="id-date" name="newdate" placeholder="Date of Appointment" value={{qs.meeting_date}}>
@@ -100,7 +102,7 @@
 								</div>
 								<p style="font-size: 14px; font-style: italic; font-weight: 200; text-transform: none;">By clicking the update button, you are rescheduling this appointment.</p><br>
 							
-								  	<button type="submit" class="btn_yes" id="btnDelete" name="btnUpdate">UPDATE</button>
+								  	<button type="submit" class="btn_yes" id="btnUpdate" name="btnUpdate">UPDATE</button>
 									<a href="{% url 'sample:ahome' %}"><button type="button" class="btn_no">CANCEL</button></a>
 							</form>
 						</div>
