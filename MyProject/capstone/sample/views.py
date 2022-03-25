@@ -205,12 +205,17 @@ class ContactView(View):
 class SettingView(View):
 		def get(self, request):
 			students = Student.objects.all()
+			student_online = Student.objects.get(isLoggedIn = True)
 
-			for student in students:
-				if(student.isLoggedIn == True):
-					return render(request, 'setting.html', {'students':student})
+			context ={
+				'students':students,
+			}	
+		
+			if(student_online.isLoggedIn == True):
+				return render(request, 'setting.html', context)
 
-			return redirect('sample:login')		
+			else:
+				return redirect('sample:login')		
 	
 class LogoutView(View):
 	def get(self, request):

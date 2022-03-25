@@ -15,14 +15,16 @@
     <div class="title">
       Update Profile
     </div>
+    {% for qs in students %}
     <div class="form">
+
         <div class="inputfield">
             <label>First Name</label>
-            <input type="text" class="input">
+            <input type="text" class="input" name="firstname" value="{{qs.firstname}}" placeholder="{{qs.firstname}}">
         </div>  
         <div class="inputfield">
           <label>Last Name</label>
-          <input type="text" class="input">
+           <input type="text" class="input" name="lastname" value="{{qs.lastname}}" placeholder="{{qs.lastname}}">
         </div>
         <div class="inputfield">
             <label>ID Number</label>
@@ -55,6 +57,7 @@
             <input type="submit" value="UPDATE" class="btn">
         </div>
     </div>
+    {% endfor %}
 </div>	
 {% endblock %}
 
