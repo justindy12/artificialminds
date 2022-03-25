@@ -71,11 +71,13 @@
 						<div id="myModal" class="modal">
 
 					<!-- Modal content -->
-							<div class="modal-content">															
+							<div class="modal-content">
+								<br>														
 								<span class="close">&times;</span>
 								<input type="text" name="sid" value="{{qs.student_id}}" hidden>
 								<input type="text" name="aid" value="{{qs.meeting_counselor_id}}" hidden>
-								<p style="font-size: 14px;">Are you sure you want to approve this appointment?</p><br>
+								<p style="font-size: 18px;">Are you sure?</p><br>
+								<p style="font-size: 14px; font-style: italic; font-weight: 200; text-transform: none;">You are about to approve this appointment.</p><br>
 								<button type="submit" class="btn_yes" id="btnDelete" name="btnApprove">YES</button>
 								<a href="{% url 'sample:ahome' %}"><button type="button" class="btn_no">NO</button></a>
 							</div>
@@ -83,7 +85,33 @@
 					</form>
 
 					<!-- <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal-{{qs.student_id}}{{qs.meeting_counselor_id}}">Approve</button> -->
-					<button class="btn1">Reschedule</button>
+					
+					<a class="button" href="#modal1"><button class="btn1">Reschedule</button></a>
+					<div class="popup" id="modal1">
+						<a class="popup__overlay"></a>
+						<div class="popup__wrapper">
+							<a class="popup__close" href="#" style="font-size: 20px;">&times;</a>
+		
+							<h4 style="text-align: center;">Change schedule date</h4>
+							<form id="updateForm" method="post">
+								{% csrf_token %}
+								<input type="text" name="sid" value="{{qs.student_id}}" hidden>
+              					<input type="text" name="aid" value="{{qs.meeting_counselor_id}}" hidden>
+								<div class="date">
+									<label>Set Date</label>
+								  	<input type="Date" class="form-control" id="id-date" name="newdate" placeholder="Date of Appointment" value={{qs.meeting_date}}>
+								</div>
+								<div class="time">
+									<label>Set Time</label>
+								  	<input type="time" class="form-control" id="id-time" name="newtime" value={{qs.meeting_time}}>
+								</div>
+								<p style="font-size: 14px; font-style: italic; font-weight: 200; text-transform: none;">By clicking the update button, you are rescheduling this appointment.</p><br>
+							
+								  	<button type="submit" class="btn_yes" id="btnDelete" name="btnUpdate">UPDATE</button>
+									<a href="{% url 'sample:ahome' %}"><button type="button" class="btn_no">CANCEL</button></a>
+							</form>
+						</div>
+					</div>
 				</td>
 			  </tr>			  
 			</tbody>

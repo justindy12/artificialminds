@@ -199,8 +199,9 @@ section{
   margin-left: 500px;
   padding: 20px;
   width: 500px;
-  height: 120px;
+  height: 200px;
   border-radius: 10px;
+  text-align: center;
 }
 
 /* The Close Button */
@@ -219,24 +220,49 @@ section{
 } 
 
 .btn_yes{
-  background-color: #04AA6D;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  padding: 8px;
+  border: 1.5px solid #04AA6D;;
+  border-radius: 20px;
+  color: #04AA6D;;
+  padding: 12px;
   text-align: center;
   font-size: 12px;
   font-weight: bold;
   margin: 2px;
   opacity: 0.6;
   transition: 0.3s;
-  width: 60px;
+  width: 80px;
 }
 
-.btn_yes:hover {opacity: 1}
+.btn_yes:hover {
+  opacity: 1;
+  background-color: #04AA6D;
+  color: #fefefe;
+}
 
 
 .btn_no{
+  border: 1.5px solid #aa041a;
+  border-radius: 20px;
+  color: #aa041a;
+  padding: 12px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  width: 80px;
+}
+
+.btn_no:hover {
+  opacity: 1;
+  background-color: #aa041a;
+  color: #fefefe;
+}
+
+
+
+.btn_update{
   background-color: #aa041a;
   border: none;
   border-radius: 5px;
@@ -251,4 +277,151 @@ section{
   width: 60px;
 }
 
-.btn_no:hover {opacity: 1}
+.btn_update:hover {opacity: 1}
+
+
+.btn_cancel{
+  background-color: #aa041a;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 8px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  width: 60px;
+}
+
+.btn_cancel:hover {opacity: 1}
+
+
+
+[id^=modal] {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+[id^=modal]:target {
+  display: block;
+}
+
+input[type=checkbox] {
+  position: absolute;
+  clip: rect(0 0 0 0);
+}
+
+.popup {
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+}
+
+.popup__overlay {
+  position: fixed;
+  z-index: 1;
+  display: block;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background: #000000b3;
+}
+
+.popup__wrapper {
+  position: fixed;
+  z-index: 9;
+  top: 41%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fefefe;
+  padding: 20px;
+  width: 500px;
+  height: 300px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.popup__close {
+  position: absolute;
+  top: 16px;
+  right: 26px;
+}
+
+.popup__wrapper a.student_btn {
+  align-items: center; 
+  text-align: center; 
+  margin-left: 80px;
+  margin-top: 50px;
+  border: 2px solid #002BDC; 
+  background: white; 
+  border-radius: 50%;
+  padding-left: 50px; 
+  padding-right: 50px; 
+  padding-bottom: 25px; 
+  padding-top: 25px;
+}
+.popup__wrapper a.student_btn:hover{
+  box-shadow: 0px 0px 25px 0px #0693E3;
+}
+.popup__wrapper a.adviser_btn {
+  align-items: center; 
+  text-align: center; 
+  margin-top: 50px;
+  border: 2px solid #002BDC; 
+  background: white; 
+  border-radius: 50%;
+  padding-left: 50px; 
+  padding-right: 50px; 
+  padding-bottom: 25px; 
+  padding-top: 25px;
+}
+
+.popup__wrapper a.adviser_btn:hover{
+  box-shadow: 0px 0px 25px 0px #0693E3;
+} 
+
+.popup__wrapper h4{
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+.popup__wrapper .date{
+  margin-top: 10px;
+  margin-left: 120px;
+  text-align: left;
+}
+.popup__wrapper .time{
+  margin-top: 10px;
+  margin-left: 120px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.popup__wrapper .date label{
+  font-size: 15px;
+  color: rgb(61, 61, 61);
+  font-weight: 500;
+  text-transform: none;
+}
+
+.popup__wrapper .time label{
+  font-size: 15px;
+  color: rgb(61, 61, 61);
+  font-weight: 500;
+  text-transform: none;
+}
+
+.popup__wrapper .date input{
+  margin-left: 12px;
+  width: 150px;
+}
+.popup__wrapper .time input{
+  margin-left: 10px;
+  width: 150px;
+}
