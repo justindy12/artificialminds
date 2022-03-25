@@ -177,7 +177,7 @@ class AdviserHomeView(View):
 				print(meeting_date)
 				print(meeting_time)
 
-				update_appointment = Appointment.objects.filter(student_id = sid, meeting_counselor_id = aid, appointmentID = apid).update(meeting_date = meeting_date, meeting_time = meeting_time,is_Approved = 1, meeting_status='approved' )
+				update_appointment = Appointment.objects.filter(student_id = sid, meeting_counselor_id = aid, appointmentID = apid).update(meeting_date = meeting_date, meeting_time = meeting_time,is_Approved = 1, meeting_status='re-scheduled' )
 
 				print('appointment updated')
 				return redirect('sample:ahome')	
