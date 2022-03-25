@@ -205,18 +205,30 @@ class ContactView(View):
 class SettingView(View):
 		def get(self, request):
 			students = Student.objects.all()
-			student_online = Student.objects.get(isLoggedIn = True)
 
-			context ={
-				'students':students,
-			}	
-		
-			if(student_online.isLoggedIn == True):
-				return render(request, 'setting.html', context)
+			for student in students:
+				if(student.isLoggedIn == True):
+					return render(request, 'setting.html', {'students':student})
 
-			else:
-				return redirect('sample:login')		
-	
+			return redirect('sample:login')		
+
+		def post(self, request):
+			if request.method == 'POST':
+				if 'btnUpdate' in request.POST:
+					print('update button clicked')
+					sid = request.POST.get("sid")
+					firstname = request.POST.get("firstname")
+					lastname = request.POST.get("lastname")
+					email = request.POST.get("email")
+					contact = request.POST.get("contact")
+					course = request.POST.get("course")
+					year = request.POST.get("year")
+					
+					update_student = Student.objects.filter(studentID = sid).update(firstname = firstname, lastname = lastname, email = email, contact = contact, course = course, year = year)
+
+					print(update_student)
+					return redirect('sample:home')
+					
 class LogoutView(View):
 	def get(self, request):
 		students = Student.objects.all()
