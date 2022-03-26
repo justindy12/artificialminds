@@ -62,8 +62,8 @@
 				<td style="width: 100px;">{{qs.meeting_time}}</td>
 				<td>
 					
-					<a class="button" href="#modal"><button class="btn">Approve</button></a>
-					<div class="popup" id="modal">
+					<a class="button" href="#modal-{{qs.student_id}}{{qs.meeting_counselor_id}}{{qs.appointmentID}}"><button class="btn">Approve</button></a>
+					<div class="popup" id="modal-{{qs.student_id}}{{qs.meeting_counselor_id}}{{qs.appointmentID}}">
 						<a class="popup__overlay"></a>
 						<div class="popup__wrapper1">
 							<a class="popup__close" href="#" style="font-size: 20px;">&times;</a>
@@ -80,8 +80,8 @@
 						</div>
 					</div>
 
-					<a class="button" href="#modal1"><button class="btn1">Re-schedule</button></a>
-					<div class="popup" id="modal1">
+					<a class="button" href="#modal1-{{qs.student_id}}{{qs.meeting_counselor_id}}{{qs.appointmentID}}"><button class="btn1">Re-schedule</button></a>
+					<div class="popup" id="modal1-{{qs.student_id}}{{qs.meeting_counselor_id}}{{qs.appointmentID}}">
 						<a class="popup__overlay"></a>
 						<div class="popup__wrapper">
 							<a class="popup__close" href="#" style="font-size: 20px;">&times;</a>

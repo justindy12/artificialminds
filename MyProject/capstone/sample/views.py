@@ -162,6 +162,7 @@ class AdviserHomeView(View):
 				apid = request.POST.get("apid")
 				print(sid)
 				print(aid)
+				print(apid)
 				update_appointment_status = Appointment.objects.filter(student_id = sid, meeting_counselor_id = aid, appointmentID =apid).update(is_Approved = 1, meeting_status='approved')
 
 				print('appointment approved')
