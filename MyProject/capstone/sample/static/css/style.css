@@ -99,22 +99,6 @@ header ul li a.button:hover {
     font-weight: 900;
 }
 
-.content .textBox p {
-    color: #333;
-}
-
-.content .textBox a {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 8px 45px;
-    background: #002BDC;
-    color: #fff;
-    border-radius: 40px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-decoration: none;
-}
-
 .content .imgBox {
     margin-top: 120px; 
     position: absolute;
@@ -184,6 +168,28 @@ header ul li a.button:hover {
     height: 100vh;
     background-image: linear-gradient(180deg, #0693E3,#002BDC);
     clip-path: circle(560px at right -85px);
+}
+
+
+.circle2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(360deg, #002BDC, #0693E3);
+    clip-path: circle(580px at left 650px);
+}
+
+
+.circle46 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(360deg, #0693E3,#002BDC);
+    clip-path: circle(580px at left -85px);
 }
 
 .container {
@@ -325,6 +331,7 @@ form .terms{
     border-radius: 5px;
     text-align: center;
     box-shadow: 1px 5px 20px grey;
+    z-index: 1;
 }
 
 .wrapper header{
@@ -467,7 +474,7 @@ form input[type="submit"]:hover{
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: #000000b3; /* Black w/ opacity */
   }
 
   .modal1 {
@@ -485,32 +492,70 @@ form input[type="submit"]:hover{
   }
   
   /* Modal Content */
-  .modal-content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0px 20px;
-    border: 1px solid #888;
-    width: 670px;
-    height: 400px;
+.modal-content {
+    position: fixed;
+    z-index: 9;
+    width: 650px;
+    height: 480px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border-radius: 10px;
+    padding: 58px 32px 32px 32px;
+    background: #fff;
   }
 
-  .modal-content1 {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0px 20px;
-    border: 1px solid #888;
-    width: 670px;
-    height: 400px;
-    border-radius: 10px;
-  }
-  
+.modal-content h4 {
+    text-align: center;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.modal-content h6 {
+    text-align: center;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.modal-content .float-container {
+    border: 3px solid #fff;
+    padding: 20px;
+}
+
+.modal-content .float-child {
+    width: 50%;
+    float: left;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-content .float-child .student_type img,
+.modal-content .float-child .teacher_type img {
+    color: #fff;
+    background-color: #ccc;
+    border-radius: 30px;
+    padding: 45px;
+    font-size: 110px;
+    margin-bottom: 10px;
+    width: 200px;
+}
+
+
+.modal-content .float-child .student_type img:hover,
+.modal-content .float-child .teacher_type img:hover {
+    background-color: #002BDC;
+
+}
+
   /* The Close Button */
   .close {
-    color: #0693E3;
-    float: right;
-    font-size: 30px;
-    font-weight: bold;
+    position: absolute;
+    top: 16px;
+    right: 26px;
+    text-decoration: none;
+    font-size: 20px;
   }
   
   .close:hover,
@@ -532,35 +577,6 @@ form input[type="submit"]:hover{
 .content .myBtn:hover {
     box-shadow: 0 8px 10px 0 rgba(0,0,0,0.24);
 }
-
-
-.content .modal .modal-content a {
-    display: inline-block;
-    transform: scale(0.6);
-    border: 5px solid #002BDC;
-    background: #002BDC;
-    border-radius: 50%;
-    text-align: center;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-bottom: 25px;
-    padding-top: 25px;
-    margin-top: -15px;
-}
-
-.content .modal .modal-content a:hover {
-    box-shadow: 0px 0px 25px 0px #0693E3;
-}
-
-.content .modal .modal-content p {
-    color: white;
-    font-weight: 400;
-    border-radius: 15px;
-    text-align: center;
-    font-size: 30px;
-    padding: 0;
-}
-
 
 [id^=modal] {
     display: none;
@@ -599,8 +615,8 @@ input[type=checkbox] {
 .popup__wrapper {
     position: fixed;
     z-index: 9;
-    width: 670px;
-    height: 400px;
+    width: 650px;
+    height: 480px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -609,43 +625,81 @@ input[type=checkbox] {
     background: #fff;
 }
 
+.popup__wrapper h4 {
+    text-align: center;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.popup__wrapper h6 {
+    text-align: center;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 400;
+}
+
 .popup__close {
     position: absolute;
     top: 16px;
     right: 26px;
+    text-decoration: none;
+    font-size: 20px;
 }
 
-.popup__wrapper a.student_btn {
-    align-items: center; 
-    text-align: center; 
-    margin-left: 80px;
-    margin-top: 50px;
-    border: 2px solid #002BDC; 
-    background: white; 
-    border-radius: 50%;
-    padding-left: 50px; 
-    padding-right: 50px; 
-    padding-bottom: 25px; 
-    padding-top: 25px;
-}
-.popup__wrapper a.student_btn:hover{
-    box-shadow: 0px 0px 25px 0px #0693E3;
-}
-.popup__wrapper a.adviser_btn {
-    align-items: center; 
-    text-align: center; 
-    margin-top: 50px;
-    border: 2px solid #002BDC; 
-    background: white; 
-    border-radius: 50%;
-    padding-left: 50px; 
-    padding-right: 50px; 
-    padding-bottom: 25px; 
-    padding-top: 25px;
+.popup__close:hover,
+.popup__close:focus {
+    color: #002BDC;
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.popup__wrapper a.adviser_btn:hover{
-    box-shadow: 0px 0px 25px 0px #0693E3;
+.popup__wrapper .float-container {
+    border: 3px solid #fff;
+    padding: 20px;
+}
+
+.popup__wrapper .float-child {
+    width: 50%;
+    float: left;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.student_type a,
+.teacher_type a {
+    margin-left: 0;
+    text-decoration: none;
+    color: #ccc;
+}
+
+.student_type a:hover,
+.teacher_type a:hover{
+    text-decoration: none;
+    color: #002BDC;
+    font-weight: bolder;
+}
+
+
+.student_type ion-icon,
+.teacher_type ion-icon{
+    color: #fff;
+    background-color: #ccc;
+    border-radius: 30px;
+    padding: 45px;
+    font-size: 110px;
+    margin-bottom: 10px;
+}
+
+.student_type ion-icon:hover,
+.teacher_type ion-icon:hover{
+    color: #fff;
+    background-color: #002BDC;
+}
+
+.student_type p, 
+.teacher_type p {
+    font-size: 20px;
 }
 
 #about {
@@ -706,6 +760,14 @@ input[type=checkbox] {
     letter-spacing: 10px;
 }
 
+#about .abouttext{
+    width: 1000px;
+    background: #fff;
+    border-radius: 6px;
+    padding: 20px 40px 30px 40px;
+    box-shadow: 1px 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
 #about .abouttext .phrase p {
     font-size: 16px;
     line-height: normal;
@@ -720,6 +782,7 @@ input[type=checkbox] {
     border-radius: 6px;
     padding: 20px 60px 30px 40px;
     box-shadow: 1px 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1;
   }
   .containner .content{
     display: flex;
@@ -853,7 +916,7 @@ input[type=checkbox] {
   
 .services{
     background: #fff;
-    z-index: 2;
+    z-index: 0;
     border-radius: 5px;
     box-shadow: 1px 5px 15px rgb(0 0 0 / 20%);
   }
