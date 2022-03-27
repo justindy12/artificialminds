@@ -37,8 +37,8 @@
                     <span class="meeting-title"><strong>Type of Meeting</strong></span>
                     <p style="font-size: 10px;">Choose one to proceed:</p>
                     <div class="category">
-                       <input type="radio" name="meeting_type" value="live"> Live
-                       <input type="radio" name="meeting_type" value="chat"> Chat<br>
+                       <input type="radio" name="meeting_type" value="live" required> Live
+                       <input type="radio" name="meeting_type" value="chat" required> Chat<br>
                     </div>
                 </div>
                
@@ -51,8 +51,8 @@
                     </select>
                     <br>
                     <p style="font-size: 14px;"><strong>Date and Time of Appointment</strong></p>
-                    <input type ="date" name="meeting_date" value="<?php echo $today; ?>">
-                    <input type= "time" name="meeting_time">
+                    <input type ="date" name="meeting_date" value="<?php echo $today; ?>" required>
+                    <input type= "time" name="meeting_time" required>
                 </div>
              
 

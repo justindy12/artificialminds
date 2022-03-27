@@ -94,11 +94,11 @@
               					<input type="text" name="apid" value="{{qs.appointmentID}}" hidden>
 								<div class="date">
 									<label>Set Date</label>
-								  	<input type="Date" class="form-control" id="id-date" name="newdate" placeholder="Date of Appointment" value={{qs.meeting_date}}>
+								  	<input type="Date" class="form-control" id="id-date" name="newdate" placeholder="Date of Appointment" value={{qs.meeting_date}} required />
 								</div>
 								<div class="time">
 									<label>Set Time</label>
-								  	<input type="time" class="form-control" id="id-time" name="newtime" value={{qs.meeting_time}}>
+								  	<input type="time" class="form-control" id="id-time" name="newtime" value={{qs.meeting_time}} required />
 								</div>
 								<p style="font-size: 14px; font-style: italic; font-weight: 200; text-transform: none;">By clicking the update button, you are rescheduling this appointment.</p><br>
 							

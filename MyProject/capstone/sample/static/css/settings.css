@@ -140,6 +140,7 @@
     outline: none;
     letter-spacing: 5px;
     font-weight: bold;
+    text-transform: uppercase;
   }
   
   .wrapper .form .inputfield .btn:hover{
