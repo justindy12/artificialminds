@@ -19,6 +19,7 @@ urlpatterns = [
 	path('logout', views.LogoutView.as_view(), name="logout"),
 	path('setappointment', views.SetAppointmentView.as_view(), name="setappointment"),
 	path('viewappointment', views.ViewAppointmentView.as_view(), name="viewappointment"),
-
+	path('lobby/', views.lobby),
+	path('room/', views.room)
 ]
 

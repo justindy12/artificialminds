@@ -238,14 +238,15 @@ class LogoutView(View):
 		for student in students:
 			if(student.isLoggedIn == True):
 				Student.objects.update(isLoggedIn = False)
-		
+				print('user successfully log out')
+				return redirect('sample:index')
 
 		for adviser in advisers:
 			if(adviser.isLoggedIn == True):
 				Adviser.objects.update(isLoggedIn = False)
-
-		print('user successfully log out')
-		return redirect('sample:index')
+				print('user successfully log out')
+				return redirect('sample:index')
+		
 
 class SetAppointmentView(View):
 		def get(self, request):
@@ -325,3 +326,10 @@ class AdviserSettingView(View):
 					return render(request, 'asetting.html', {'advisers':adviser})
 
 			return redirect('sample:alogin')
+
+def lobby(request):
+	return render(request, 'lobby.html')
+
+
+def room(request):
+	return render(request, 'room.html')
