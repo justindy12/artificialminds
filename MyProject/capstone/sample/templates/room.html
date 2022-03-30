@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 {% extends 'main.html' %}
 {% load static %}
 
@@ -9,6 +10,23 @@
 	</section>
 
 	<section id="video-streams"></section>
+
+	<section id="controls-wrapper">
+		<div class="icon-wrapper">
+			<img class="control-icon" id="mic-btn" src="{% static 'img/images/microphone.svg' %}">
+		</div>
+
+		<div class="icon-wrapper">
+			<img class="control-icon" id="camera-btn" src="{% static 'img/images/video.svg' %}">
+		</div>
+
+		<div class="icon-wrapper">
+			<img class="control-icon" id="leave-btn" src="{% static 'img/images/leave.svg' %}">
+		</div>
+
+
+		
+	</section>
 
 </main>
 <script type="text/javascript" src="{% static 'assets/AgoraRTC_N-4.10.2.js' %}"></script>
