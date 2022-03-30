@@ -681,18 +681,20 @@ input[type=checkbox] {
 }
 
 
-.student_type ion-icon,
-.teacher_type ion-icon{
+.popup__wrapper .float-child .student_type img,
+.popup__wrapper .float-child .teacher_type img{
     color: #fff;
     background-color: #ccc;
     border-radius: 30px;
     padding: 45px;
     font-size: 110px;
     margin-bottom: 10px;
+    width: 200px;
 }
 
-.student_type ion-icon:hover,
-.teacher_type ion-icon:hover{
+
+.popup__wrapper .float-child .student_type img:hover,
+.popup__wrapper .float-child .teacher_type img:hover{
     color: #fff;
     background-color: #002BDC;
 }
