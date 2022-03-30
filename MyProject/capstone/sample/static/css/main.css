@@ -215,7 +215,8 @@ body{
 	background-color: #0693E3;
 }
 #leave-btn:hover{
-	background-color: #ff0000;
+	filter: invert(1);
+	background-color: #00a3a3;
 }
 
 
