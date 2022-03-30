@@ -11,21 +11,23 @@
 		<img id="logo" src="{% static 'img/images/chat-icon.png' %}" />
 
 		<div id="welcome-message">
-			<h1>Welcome to CheerApp</h1>
-				<p>Emotion recognition application just for you</p>
+			<h1>Join Meeting</h1>
+			<p>Emotion recognition application just for you</p>
 		</div>
 
 		<form id="form">
 			<div class="form-field">
-				<input type="text" name="room" placeholder="Enter room name:"  style="text-transform:uppercase;"/>
+				<input autocomplete="off" type="text" name="room" placeholder="Enter room name" />
 			</div>
 
 			<div class="form-field">
-				<input type="text" name="username" placeholder="Enter Name"  style="text-transform:uppercase;"/>
+				<input autocomplete="off" type="text" name="username" placeholder="Enter Name" />
 			</div>
-
 			<div class="form-field">
-				<input type="submit" value="Join Stream" />
+				<p>By clicking "JOIN", you agree to our Terms of Service and Privacy Statement.</p>
+			</div>
+			<div class="form-field">
+				<input type="submit" value="Join" />
 			</div>
 
 		</form>
