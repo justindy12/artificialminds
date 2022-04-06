@@ -20,10 +20,16 @@ urlpatterns = [
 	path('setappointment', views.SetAppointmentView.as_view(), name="setappointment"),
 	path('viewappointment', views.ViewAppointmentView.as_view(), name="viewappointment"),
 	path('lobby/', views.lobby),
-	path('room/', views.room),
+	path('videoroom/', views.videoroom),
 	path('get_token/', views.getToken),
 	path('create_member/', views.createMember),
 	path('get_member/', views.getMember),
-	path('delete_member/', views.deleteMember)
+	path('delete_member/', views.deleteMember),
+	path('chathome', views.chathome, name='chathome'),
+    path('<str:room>/', views.room, name='room'),
+    path('checkview', views.checkview, name='checkview'),
+    path('send', views.send, name='send'),
+    path('getMessages/<str:room>/', views.getMessages, name='getMessages'),
+
 ]
 
