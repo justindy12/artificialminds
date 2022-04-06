@@ -22,6 +22,8 @@
 							<th class="column4">Time</th>
 							<th class="column2">Type</th>
 							<th class="column3">Status</th>	
+							<th class="column3">Action</th>	
+
 						</tr>
 					</thead>
 					<tbody>
@@ -33,6 +35,7 @@
 								<td class="column4" style="text-transform: uppercase;">{{qs.meeting_type}}</td> <!--Status Request-->
 								<td class="column3" style="text-transform: uppercase;">{{qs.meeting_status}}</td> <!--Type of Meetong-->
 								</td>
+								<td><button onclick="document.location='lobby/'">Start</button></td>>
 							</tr>	
 						{% endfor %}					
 					</tbody>

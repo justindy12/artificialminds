@@ -96,7 +96,7 @@ def login(request):
 			if account.password == password:
 				print('login successful')
 				Student.objects.filter(email=email).update(isLoggedIn = True)
-				return redirect('sample:home')
+				return redirect('/home?'+email)
 
 			elif account.password != password: 
 				messages.error(request, 'Incorrect Password')
@@ -120,7 +120,7 @@ def alogin(request):
 			if account.password == password:
 				print('adviser login successful')
 				Adviser.objects.filter(email=email).update(isLoggedIn = True)
-				return redirect('sample:ahome')
+				return redirect('/ahome?'+email)
 
 			elif account.password != password:
 				messages.error(request,'Incorrect Password')
@@ -144,7 +144,11 @@ class HomeView(View):
 
 class AdviserHomeView(View):
 	def get(self, request):
-		adviser_online = Adviser.objects.get(isLoggedIn = True)
+		try:
+			adviser_online = Adviser.objects.get(isLoggedIn = True)
+		except:
+			return redirect('sample:alogin')
+
 		student = Student.objects.all()
 		appointment = Appointment.objects.filter(meeting_counselor=adviser_online.adviserID,is_Approved=0)
 		approved = Appointment.objects.filter(is_Approved = 1)
@@ -159,7 +163,6 @@ class AdviserHomeView(View):
 		
 		if(adviser_online.isLoggedIn == True):
 			return render(request, 'homeAdviser.html', context)
-
 
 	def post(self, request):
 		if request.method == 'POST':
