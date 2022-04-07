@@ -36,7 +36,7 @@
 		  <table cellpadding="0" cellspacing="0" border="0">
 			  <!--JUS, loop nlng from database. Example rana sa sud sa "td"-->
 			<tbody>
-				{% for qs in appointments %}
+				{% for qs in live_appointment %}
 				<tr>
 					<td style="width: 150px;">{{qs.meeting_counselor.firstname}} {{qs.meeting_counselor.lastname}}</td> <!--Status Request-->
 					<td class="column2">{{qs.meeting_date}}</td> <!--appointment id-->
@@ -72,7 +72,7 @@
 			<div class="tbl-content">
 			<table cellpadding="0" cellspacing="0" border="0">
 				<tbody>
-					{% for qs in appointments %}
+					{% for qs in chat_appointment %}
 					<tr>
 						<td style="width: 150px;">{{qs.meeting_counselor.firstname}} {{qs.meeting_counselor.lastname}}</td> <!--Status Request-->
 						<td class="column2">{{qs.meeting_date}}</td> <!--appointment id-->

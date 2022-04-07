@@ -151,13 +151,15 @@ class AdviserHomeView(View):
 
 		student = Student.objects.all()
 		appointment = Appointment.objects.filter(meeting_counselor=adviser_online.adviserID,is_Approved=0)
-		approved = Appointment.objects.filter(is_Approved = 1)
-
+	
+		approved_chat = Appointment.objects.filter(meeting_counselor=adviser_online.adviserID,is_Approved=1,meeting_type = 'chat')
+		approved_live = Appointment.objects.filter(meeting_counselor=adviser_online.adviserID,is_Approved=1,meeting_type = 'live')
 		context ={
 			'advisers':adviser_online,
 			'students':student,
 			'appointments':appointment,
-			'approved':approved,
+			'approved_chat':approved_chat,
+			'approved_live':approved_live,
 			
 		}
 		
@@ -291,11 +293,15 @@ class ViewAppointmentView(View):
 			adviser = Adviser.objects.all()
 			student_online = Student.objects.get(isLoggedIn = True)
 			appointment = Appointment.objects.filter(student = student_online.studentID)
+			chat_appointment = Appointment.objects.filter(student = student_online.studentID, meeting_type='chat')
+			live_appointment = Appointment.objects.filter(student = student_online.studentID, meeting_type='live')
 
 			context ={
 				'advisers':adviser,
 				'students':student_online,
 				'appointments':appointment,
+				'live_appointment':live_appointment,
+				'chat_appointment':chat_appointment,
 			}
 
 			if(student_online.isLoggedIn == True):
