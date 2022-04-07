@@ -34,7 +34,7 @@
             {% csrf_token %}
             <input type="hidden" name="username" id="username" value="{{username}}"/>
             <input type="hidden" name="room_id" id="room_id" value="{{room_details.id}}"/>
-            <input type="text" name="message" id="message" width="100px" autocomplete="off"/>
+            <input type="text" name="message" id="message" width="100px" autocomplete="off" placeholder="Aa"/>
             <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
         </form>
     </div>

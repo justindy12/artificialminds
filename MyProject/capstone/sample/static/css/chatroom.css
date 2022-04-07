@@ -1,4 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+::-webkit-input-placeholder {
+	text-transform: initial;
+	text-shadow: none;
+	font-weight: 300;
+}
+
+:-moz-placeholder { 
+	text-transform: initial;
+	text-shadow: none;	
+	font-weight: 300;
+}
+
+::-moz-placeholder {  
+	text-transform: initial;
+	text-shadow: none;
+	font-weight: 300;
+}
+
+:-ms-input-placeholder { 
+	text-transform: initial;
+	text-shadow: none;
+	font-weight: 300;
+}
+
 *{
   margin: 0;
   padding: 0;
