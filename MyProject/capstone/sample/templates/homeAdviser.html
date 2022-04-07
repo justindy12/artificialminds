@@ -142,8 +142,37 @@
 	</section>
 
     <!-- Section 2 -->
+    
     <section>
-		<h1 style="margin-left: 20px;">Approved Appointments</h1>
+		<h1 style="margin-left: 20px;">Student Status</h1>
+		<br>
+		<div class="tbl-header">
+			<table cellpadding="0" cellspacing="0" border="0" class="table2">
+				<thead>
+				<tr>
+					<th style="width: 120px;">Student Name</th>
+					<th style="width: 120px;">Status</th>
+					<th style="width: 120px;">Details</th>
+				</tr>
+				</thead>
+			</table>
+			</div>
+			<div class="tbl-content">
+			<table cellpadding="0" cellspacing="0" border="0">
+				<tbody>
+				<tr>					
+					<td style="width: 120px;">Carl Cordova</td>
+					<td style="width: 120px;">Red Flag</td>
+					<td style="width: 120px;"> <button class="btn4">View</button></td>
+				</tr>			  
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+    <!-- Section 3 -->
+    <section>
+		<h1 style="margin-left: 20px;">Approved Appointments Meeting Type: VIDEO</h1>
 		<br>
 		<div class="tbl-header">
 			<table cellpadding="0" cellspacing="0" border="0" class="table2">
@@ -175,18 +204,19 @@
 		</div>
 	</section>
 	
-    <!-- Section 3 -->
-    
-    <section style="margin-left: 400px;">
-		<h1 style="margin-left: 20px;">Student Status</h1>
+	<!-- Section 4 -->
+    <section>
+		<h1 style="margin-left: 20px;">Approved Appointments  Meeting Type: CHAT</h1>
 		<br>
 		<div class="tbl-header">
 			<table cellpadding="0" cellspacing="0" border="0" class="table2">
 				<thead>
 				<tr>
-					<th style="width: 120px;">Student Name</th>
-					<th style="width: 120px;">Status</th>
-					<th style="width: 120px;">Details</th>
+					<th style="width: 80px;">Meeting</th>
+					<th style="width: 150px;">Name</th>
+					<th style="width: 130px;">Date</th>
+					<th style="width: 100px;">Time</th>
+					<th>Action</th>
 				</tr>
 				</thead>
 			</table>
@@ -194,15 +224,21 @@
 			<div class="tbl-content">
 			<table cellpadding="0" cellspacing="0" border="0">
 				<tbody>
+					{% for qs in approved %}
 				<tr>					
-					<td style="width: 120px;">Carl Cordova</td>
-					<td style="width: 120px;">Red Flag</td>
-					<td style="width: 120px;"> <button class="btn4">View</button></td>
-				</tr>			  
+					<td style="width: 80px;">{{qs.meeting_type}}</td>
+					<td style="width: 150px;">{{qs.student.firstname}} {{qs.student.lastname}}</td>
+					<td style="width: 130px;">{{qs.meeting_date}}</td>
+					<td style="width: 100px;">{{qs.meeting_time}}</td>
+					<td> <button class="btn3" onclick="document.location='lobby/'">Start</button></td>
+				</tr>		
+					  {% endfor %}
 				</tbody>
 			</table>
 		</div>
 	</section>
+	
+	
 </section>
 <script>
 	$(window).on("load resize ", function() {

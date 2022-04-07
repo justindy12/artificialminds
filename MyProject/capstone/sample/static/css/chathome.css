@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins: 200,300,400,500,600,700,800,900&display=swap');
+
+
+:root{
+	--shadow:0 4px 6px -1px rgba(0,0,0,0.1),0 2px 4px -1px rgba(0,0,0,0.06);
+}
+
+::-webkit-input-placeholder {
+	text-transform: initial;
+	text-shadow: none;
+	font-weight: 300;
+}
+
+:-moz-placeholder { 
+	text-transform: initial;
+	text-shadow: none;	
+	font-weight: 300;
+}
+
+::-moz-placeholder {  
+	text-transform: initial;
+	text-shadow: none;
+	font-weight: 300;
+}
+
+:-ms-input-placeholder { 
+	text-transform: initial;
+	text-shadow: none;
+	font-weight: 300;
+}
+
+body{
+	background-color: rgba(232,233,239,1);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ---------- Lobby Styling  ---------- */
+
+#logo{
+	display: block;
+	width: 100px;
+	margin: 0 auto;
+}
+
+#form-container{
+	width: 400px;
+	box-shadow: var(--shadow);
+	background-color: #fff;
+	padding: 30px;
+	border-radius: 5px;
+	position: fixed;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#welcome-message{
+	text-align: center;
+	margin: 20px;	
+}
+
+#welcome-message h1{
+	margin-bottom: 0;
+	font-size: 36px;
+}
+
+
+#welcome-message p{
+	margin-top: 0;
+	font-size: 16px;
+	margin-bottom: 40px;
+}
+
+.form-field{
+	margin: 18px;
+}
+
+.form-field label{
+	font-size: 16px;
+	line-height: 1.7em;
+}
+
+.form-field input{
+	text-transform:uppercase;
+	height: 40px;
+	width: 100%;
+	border: 2px solid rgba(198,202,219,1);
+	border-radius: 10px;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	outline: none;
+	border: 1px solid #ccc;
+	border-bottom-width: 2px;
+	transition: all 0.3s ease;
+}
+.form-field input:focus,
+.form-field input:valid {
+	font-weight: bolder;
+	text-shadow:  1px 1px #ccc;
+	border-color: #0693E3;
+}
+
+.form-field input[type='submit']{
+	font-weight: 900;
+	letter-spacing: 2px;
+	background: linear-gradient(135deg, #0693E3, #002BDC);
+	border: none;
+	color: #fff;
+}
+
+
+.form-field input[type='submit']:hover{
+	background: linear-gradient(-135deg, #0693E3, #002BDC);
+	border: none;
+	color: #fff;
+}
+
+.form-field p {
+	font-size: 12px;
+	margin: 20px 0px;
+}
+
+
+@media screen and (max-width: 450px){
+	#form-container{
+		width: 95%;
+	}
+	#welcome-message h1{
+		font-size: 24px;
+	}
+}

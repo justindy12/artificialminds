@@ -5,13 +5,64 @@
     {% block title %} Settings | ArtificialMinds {% endblock %}
 
     {% block css %}
-    <link rel="stylesheet" type="text/css" href="../static/css/setting.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/asettings.css">
     {% endblock%}
 
     {% block nav_setting %}active{% endblock %}
 
 {% block content %}
-    <h2>settings PAGE</h2>
+<div class="wrapper">
+    <div class="title">
+      Update Profile
+    </div>
+   
+    <div class="form">
+    <form id="updateForm" method="post">
+         {% csrf_token %}
+
+            <input type="text" class="input" name="sid" value="{{students.studentID}}" placeholder="{{students.studentID}}" hidden>
+
+        <div class="inputfield">
+            <label>First Name</label>
+            <input type="text" class="input" name="firstname" value="{{students.firstname}}" placeholder="{{students.firstname}}">
+        </div>  
+        <div class="inputfield">
+          <label>Last Name</label>
+           <input type="text" class="input" name="lastname" value="{{students.lastname}}" placeholder="{{students.lastname}}">
+        </div>
+        
+        <div class="inputfield">
+            <label>Email Address</label>
+            <input type="email" class="input" name="email" value="{{students.email}}" placeholder="{{students.email}}">
+        </div> 
+        <div class="inputfield">
+            <label>Phone Number</label>
+             <input type="text" class="input" name="contact" value="{{students.contact}}" placeholder="{{students.contact}}">
+        </div> 
+        <div class="inputfield">
+            <label>Course</label>
+             <input type="text" class="input" name="course" value="{{students.course}}" placeholder="{{students.course}}">
+        </div>
+        <div class="inputfield">
+            <label>Year</label>
+            <input type="text" class="input" name="year" value="{{students.year}}" placeholder="{{students.year}}">
+        </div> 
+        <div class="inputfield">
+            <label>Gender</label>
+            <input type="text" class="input" value="{{students.gender}}" disabled>
+        </div><br><br>
+
+        <div class="inputfield terms">
+          <p>Please review before clicking update.</p>
+        </div> 
+
+        <div class="inputfield">
+            <input type="submit" name="btnUpdate" class="btn">
+        </div>
+    </form>
+    </div>
+   
+</div>	
 {% endblock %}
 
 

@@ -11,40 +11,89 @@
 
 {% block content %}
 <div class="limiter">
-	<div class="container-table100">
-		<div class="wrap-table100">
-			<div class="table100">
-				<table>
-					<thead>
-						<tr class="table100-head">
-							<th class="column2">Counselor</th>
-							<th class="column2">Date</th>
-							<th class="column4">Time</th>
-							<th class="column2">Type</th>
-							<th class="column3">Status</th>	
-							<th class="column3">Action</th>	
 
-						</tr>
-					</thead>
-					<tbody>
-						{% for qs in appointments %}
-							<tr>
-								<td class="column4">{{qs.meeting_counselor.firstname}} {{qs.meeting_counselor.lastname}}</td> <!--Status Request-->
-								<td class="column2">{{qs.meeting_date}}</td> <!--appointment id-->
-								<td class="column3">{{qs.meeting_time}}</td> <!--Type of Meetong-->
-								<td class="column4" style="text-transform: uppercase;">{{qs.meeting_type}}</td> <!--Status Request-->
-								<td class="column3" style="text-transform: uppercase;">{{qs.meeting_status}}</td> <!--Type of Meetong-->
-								</td>
-								<td><button onclick="document.location='lobby/'">Start</button></td>>
-							</tr>	
-						{% endfor %}					
-					</tbody>
-				</table>
-			</div>
+<section class="indent-1">
+    <!-- Section 1 --> 
+    <section>
+		<!--for demo wrap-->
+		<h1 style="margin-left: 20px;">Meeting Type: <strong>VIDEO</strong></h1>
+		<br>
+		<div class="tbl-header">
+		  <table cellpadding="0" cellspacing="0" border="0">
+			<thead>
+			  <tr>
+				<th style="width: 150px;">Counselor</th>
+				<th class="column3">Date</th>
+				<th style="width: 100px;">Time</th>
+				<th style="width: 70px;">Type</th>
+				<th style="width: 100px;">Status</th>	
+				<th class="column3">Action</th>	
+			  </tr>
+			</thead>
+		  </table>
 		</div>
+		<div class="tbl-content">
+		  <table cellpadding="0" cellspacing="0" border="0">
+			  <!--JUS, loop nlng from database. Example rana sa sud sa "td"-->
+			<tbody>
+				{% for qs in appointments %}
+				<tr>
+					<td style="width: 150px;">{{qs.meeting_counselor.firstname}} {{qs.meeting_counselor.lastname}}</td> <!--Status Request-->
+					<td class="column2">{{qs.meeting_date}}</td> <!--appointment id-->
+					<td style="width: 100px;">{{qs.meeting_time}}</td> <!--Type of Meetong-->
+					<td style="width: 70px;">{{qs.meeting_type}}</td> <!--Status Request-->
+					<td  style="width: 100px;">{{qs.meeting_status}}</td> <!--Type of Meetong-->
+					<td><button class="btn3" onclick="document.location='lobby/'">Start</button></td>
+				</tr>	
+			{% endfor %}			  
+			</tbody>
+		  </table>
 	</div>
-</div>
+	</section>
 
+    <!-- Section 2 -->
+    <section style="margin-left: 150px;">
+		<h1 style="margin-left: 20px;">Meeting Type: <strong>CHAT</strong></h1>
+		<br>
+		<div class="tbl-header">
+			<table cellpadding="0" cellspacing="0" border="0" class="table2">
+				<thead>
+					<tr>
+						<th style="width: 150px;">Counselor</th>
+						<th class="column3">Date</th>
+						<th style="width: 100px;">Time</th>
+						<th style="width: 70px;">Type</th>
+						<th style="width: 100px;">Status</th>	
+						<th class="column3">Action</th>	
+					</tr>
+				</thead>
+			</table>
+			</div>
+			<div class="tbl-content">
+			<table cellpadding="0" cellspacing="0" border="0">
+				<tbody>
+					{% for qs in appointments %}
+					<tr>
+						<td style="width: 150px;">{{qs.meeting_counselor.firstname}} {{qs.meeting_counselor.lastname}}</td> <!--Status Request-->
+						<td class="column2">{{qs.meeting_date}}</td> <!--appointment id-->
+						<td style="width: 100px;">{{qs.meeting_time}}</td> <!--Type of Meetong-->
+						<td style="width: 70px;">{{qs.meeting_type}}</td> <!--Status Request-->
+						<td style="width: 100px;">{{qs.meeting_status}}</td> <!--Type of Meetong-->
+						<td><button class="btn3" onclick="document.location='lobby/'">Start</button></td>
+					</tr>	
+				{% endfor %}			  
+				</tbody>
+			</table>
+		</div>
+	</section>
+	
+</section>
+<script>
+	$(window).on("load resize ", function() {
+		var scrollWidth = $('.tbl-content').width() - $('.tbl-content table').width();
+		$('.tbl-header').css({'padding-right':scrollWidth});
+	}).resize();
+</script>
 
 
 <!--===============================================================================================-->	

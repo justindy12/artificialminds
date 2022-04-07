@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+
+body {
+    margin: 0 auto;
+    max-width: 1100px;
+    padding: 0 20px;
+}
+.box {
+    background-color: #0645A4;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    margin-top: 100px;
+    box-shadow: 0px 0px 15px 10px rgb(50 47 47 / 15%);
+}
+
+h2 {
+    background-color: #0645A4;
+    padding: 0 20px;
+    color: white; 
+    border-radius: 5px;
+    text-transform: uppercase;
+}
+.box p {
+    font-size: 10px;
+    font-style: italic;
+    color: white;
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
+
+.display {
+    overflow: auto;
+    scroll-behavior: smooth;
+    height: 400px;
+}
+.container {
+    background-color: #0645A4;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.display p .msg{
+    margin-top: 5px;
+    margin-left: 10px;
+    font-size: 16px;
+    color: black;
+}
+
+.name {
+    text-transform: capitalize;
+    font-size: 14px;
+}
+
+.darker {
+    border: none;
+    background-color: white;
+}
+
+.container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.container img {
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+.container img.right {
+    float: right;
+    margin-left: 20px;
+    margin-right:0;
+}
+
+.time-right {
+    font-size: 10px;
+    float: right;
+    color: #aaa;
+}
+
+.time-left {
+    font-size: 10px;
+    float: left;
+    color: #999;
+}
+
+.container input[type=text], select {
+    margin-left: 30px;
+    width: 85%;
+    padding: 12px 20px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    line-height: 28px;
+    resize: vertical;
+}
+
+
+.container input[type=text]:focus,
+.container input[type=text]:valid {
+	text-shadow:  1px 1px #ccc;
+	border-color: #0693E3;
+}
+
+.container button {
+    margin-left: 15px;
+    padding: 12px 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    color: #002BDC;
+    text-align: center;
+    opacity: 0.6;
+    transition: 0.3s;
+    font-size: 15px;
+}
+
+
+.container button:hover {opacity: 1}
+
+div {
+    border-radius: 5px;
+    border: none;
+    background-color: #84BCF3;
+    padding: 10px;
+}
+
+
+.circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(180deg, #002BDC, #0693E3);
+    clip-path: circle(560px at right 650px);
+	z-index: -1;
+    border-radius: 0;
+}
+
+
+.circle46 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(360deg, #0693E3,#002BDC);
+    clip-path: circle(580px at left -85px);
+	z-index: -1;    
+    border-radius: 0;
+}
+
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+	margin-top: 20px;
+	margin-left: 50px;
+	margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo { 
+    position: relative;
+    max-width: 120px;
+	z-index: 1;
+}
+
+
+/* for custom scrollbar for webkit browser*/
+
+::-webkit-scrollbar {
+    width: 6px;
+} 
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px #0645A4;
+  box-shadow: inset 0 0 6px #84BCF3;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px #0645A4; 
+  box-shadow: inset 0 0 6px #84BCF3;
+}
