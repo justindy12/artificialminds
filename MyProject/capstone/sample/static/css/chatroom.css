@@ -45,12 +45,14 @@ h2 {
     border-radius: 5px;
     margin-top: 5px;
 }
+.display p {
+    font-size: 16px;
+    color: black;
+}
 
 .display p .msg{
     margin-top: 5px;
     margin-left: 10px;
-    font-size: 16px;
-    color: black;
 }
 
 .name {
