@@ -343,6 +343,21 @@ class AdviserSettingView(View):
 					return render(request, 'asetting.html', {'advisers':adviser})
 
 			return redirect('sample:alogin')
+			
+		def post(self, request):
+			if request.method == 'POST':
+				if 'btnUpdate' in request.POST:
+					print('update button clicked')
+					sid = request.POST.get("sid")
+					firstname = request.POST.get("firstname")
+					lastname = request.POST.get("lastname")
+					email = request.POST.get("email")
+					contact = request.POST.get("contact")
+					
+					update_adviser = Adviser.objects.filter(adviserID = sid).update(firstname = firstname, lastname = lastname, email = email, contact = contact)
+
+					print(update_adviser)
+					return redirect('sample:ahome')
 
 def lobby(request):
 	advisers = Adviser.objects.all()
@@ -441,3 +456,6 @@ def getMessages(request, room):
 
     messages = Message.objects.filter(room=room_details.id)
     return JsonResponse({"messages":list(messages.values())})
+
+def ratings(request):
+	return render(request, 'ratings.html')
