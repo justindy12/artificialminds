@@ -22,11 +22,12 @@
 		  <table cellpadding="0" cellspacing="0" border="0">
 			<thead>
 			  <tr>
-				<th style="width: 150px;">Counselor</th>
-				<th class="column3">Date</th>
+				<th style="width: 100px;">Counselor</th>
+				<th style="width: 100px;">Date</th>
 				<th style="width: 100px;">Time</th>
-				<th style="width: 70px;">Type</th>
-				<th style="width: 100px;">Status</th>	
+				<th style="width: 50px;">Type</th>
+				<th style="width: 100px;">Status</th>
+				<th style="width: 100px;">Room</th>		
 				<th class="column3">Action</th>	
 			  </tr>
 			</thead>
@@ -38,11 +39,12 @@
 			<tbody>
 				{% for qs in live_appointment %}
 				<tr>
-					<td style="width: 150px;">{{qs.meeting_counselor.firstname}} {{qs.meeting_counselor.lastname}}</td> <!--Status Request-->
-					<td class="column2">{{qs.meeting_date}}</td> <!--appointment id-->
+					<td style="width: 100px;">{{qs.meeting_counselor.firstname}} {{qs.meeting_counselor.lastname}}</td> <!--Status Request-->
+					<td style="width: 100px;">{{qs.meeting_date}}</td> <!--appointment id-->
 					<td style="width: 100px;">{{qs.meeting_time}}</td> <!--Type of Meetong-->
-					<td style="width: 70px;">{{qs.meeting_type}}</td> <!--Status Request-->
+					<td style="width: 50px;">{{qs.meeting_type}}</td> <!--Status Request-->
 					<td  style="width: 100px;">{{qs.meeting_status}}</td> <!--Type of Meetong-->
+					<td  style="width: 100px;">Room name here</td> <!--Room Name -->
 					<td><button class="btn3" onclick="document.location='lobby/'">Start</button></td>
 				</tr>	
 			{% endfor %}			  
@@ -59,11 +61,12 @@
 			<table cellpadding="0" cellspacing="0" border="0" class="table2">
 				<thead>
 					<tr>
-						<th style="width: 150px;">Counselor</th>
-						<th class="column3">Date</th>
+						<th style="width: 100px;">Counselor</th>
+						<th style="width: 100px;">Date</th>
 						<th style="width: 100px;">Time</th>
-						<th style="width: 70px;">Type</th>
-						<th style="width: 100px;">Status</th>	
+						<th style="width: 50px;">Type</th>
+						<th style="width: 100px;">Status</th>
+						<th style="width: 100px;">Room</th>		
 						<th class="column3">Action</th>	
 					</tr>
 				</thead>
@@ -74,11 +77,12 @@
 				<tbody>
 					{% for qs in chat_appointment %}
 					<tr>
-						<td style="width: 150px;">{{qs.meeting_counselor.firstname}} {{qs.meeting_counselor.lastname}}</td> <!--Status Request-->
-						<td class="column2">{{qs.meeting_date}}</td> <!--appointment id-->
-						<td style="width: 100px;">{{qs.meeting_time}}</td> <!--Type of Meetong-->
-						<td style="width: 70px;">{{qs.meeting_type}}</td> <!--Status Request-->
-						<td style="width: 100px;">{{qs.meeting_status}}</td> <!--Type of Meetong-->
+						<td style="width: 100px;">{{qs.meeting_counselor.firstname}} {{qs.meeting_counselor.lastname}}</td> <!--Status Request-->
+					<td style="width: 100px;">{{qs.meeting_date}}</td> <!--appointment id-->
+					<td style="width: 100px;">{{qs.meeting_time}}</td> <!--Type of Meetong-->
+					<td style="width: 50px;">{{qs.meeting_type}}</td> <!--Status Request-->
+					<td  style="width: 100px;">{{qs.meeting_status}}</td> <!--Type of Meetong-->
+					<td  style="width: 100px;">Room name here</td> <!--Room Name -->
 						<td><button class="btn3" onclick="document.location='lobby/'">Start</button></td>
 					</tr>	
 				{% endfor %}			  
