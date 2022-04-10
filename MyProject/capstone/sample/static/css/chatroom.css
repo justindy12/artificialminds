@@ -45,6 +45,25 @@ body {
     box-shadow: 0px 0px 15px 10px rgb(50 47 47 / 15%);
 }
 
+.action_btn{
+    float: right;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: #0082e6;
+    border: 2px solid #0082e6;
+    color: #fff;
+}
+
+.action_btn:hover{
+    color: #fff;
+    background-color: #002BDC;
+    border: 2px solid #fff;
+}
+
 h2 {
     background-color: #0645A4;
     padding: 0 20px;
@@ -68,7 +87,7 @@ h2 {
 .container {
     background-color: #0645A4;
     border-radius: 5px;
-    margin-top: 5px;
+    margin-top: 8px;
 }
 .display p {
     font-size: 16px;
@@ -83,6 +102,7 @@ h2 {
 .name {
     text-transform: capitalize;
     font-size: 14px;
+    margin-left: 10px;
 }
 
 .darker {
@@ -120,6 +140,7 @@ h2 {
     font-size: 10px;
     float: left;
     color: #999;
+    margin-left: 10px;
 }
 
 .container input[type=text], select {
@@ -158,7 +179,7 @@ h2 {
 
 .container button:hover {opacity: 1}
 
-div {
+.display {
     border-radius: 5px;
     border: none;
     background-color: #84BCF3;
@@ -210,6 +231,125 @@ header .logo {
 	z-index: 1;
 }
 
+.action_btn1 {
+    margin: 20px auto 10px 110px;
+}
+
+.btn_yes{
+    border: 1.5px solid #04AA6D;;
+    border-radius: 20px;
+    color: #04AA6D;;
+    padding: 12px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+    width: 80px;
+}
+  
+.btn_yes:hover {
+    opacity: 1;
+    background-color: #04AA6D;
+    color: #fefefe;
+}
+
+
+.btn_no{
+    border: 1.5px solid #aa041a;
+    border-radius: 20px;
+    color: #aa041a;
+    padding: 12px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+    width: 80px;
+}
+
+.btn_no:hover {
+    opacity: 1;
+    background-color: #aa041a;
+    color: #fefefe;
+}
+
+/* logout modal */
+
+[id^=modal] {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+[id^=modal]:target {
+display: block;
+}
+
+input[type=checkbox] {
+position: absolute;
+clip: rect(0 0 0 0);
+}
+
+.popup69 {
+width: 100%;
+height: 100%;
+z-index: 99999;
+}
+
+.popup__overlay69 {
+pointer-events: none;
+position: fixed;
+z-index: 1;
+display: block;
+top: 0;
+left: 0;
+height: 100%;
+width: 100%;
+margin: 0;
+background: #000000b3;
+border-radius: 0;
+}
+
+.popup__wrapper69 {
+position: fixed;
+z-index: 9;
+width: 450px;
+height: 230px;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+border-radius: 10px;
+padding: 58px 32px 32px 32px;
+background: #fff;
+}
+
+.popup__wrapper69 h5 {
+color: rgb(61, 61, 61);
+text-align: center;
+font-size: 20px;
+text-transform: uppercase;
+line-height: normal;
+}
+
+.popup__wrapper69 h6 {
+text-align: center;
+font-size: 12px;
+font-style: italic;
+font-weight: 400;
+line-height: normal;
+}
+
+.popup__close69 {
+color: rgb(61, 61, 61);
+position: absolute;
+top: 5px;
+right: 26px;
+text-decoration: none;
+}
 
 /* for custom scrollbar for webkit browser*/
 
@@ -227,3 +367,5 @@ header .logo {
   -webkit-box-shadow: inset 0 0 6px #0645A4; 
   box-shadow: inset 0 0 6px #84BCF3;
 }
+
+

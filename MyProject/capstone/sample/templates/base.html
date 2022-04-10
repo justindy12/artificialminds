@@ -39,7 +39,24 @@
                   <a class="{% block nav_setting %}{% endblock %}" href="{% url 'sample:setting' %}"><i class="fa-solid fa-gears"></i>Setting</a>
               </li>
               <li>
-                  <a class="{% block nav_logout %}{% endblock %}" href="{% url 'sample:logout' %}"><i class="fa-solid fa-user-astronaut"></i>Log Out</a>
+                  <div class="center">
+                    <a class="{% block nav_logout %}{% endblock %}" href="#modal2"><i class="fa-solid fa-user-astronaut"></i>Log Out</a>
+                    <div class="popup69" id="modal2">
+                        <a class="popup__overlay69"></a>
+                        <div class="popup__wrapper69">
+                            <a class="popup__close69" href="#" style="font-size: 20px;">&times;</a>
+            
+                            <h5>Are you sure?</h5>
+                            <h6>You are about to sign out.</h6>
+                            
+                            <div class="buttons">
+                                <div class="action_btn">
+                                    <a href="{% url 'sample:logout' %}"><button class="action_btn next" type="button">Yes, Log me out.</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
               </li>
             </ul>
         </nav>

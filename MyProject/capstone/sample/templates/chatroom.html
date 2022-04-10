@@ -19,6 +19,25 @@
 	<div class="circle46"></div>
 
   <div class="box">
+    <div class="center">
+      <a href="#modal2"><button class="action_btn" type="button">Leave Conversation</button></a>
+      <div class="popup69" id="modal2">
+          <a class="popup__overlay69"></a>
+          <div class="popup__wrapper69">
+              <a class="popup__close69" href="#" style="font-size: 20px;">&times;</a>
+
+              <h5>Are you sure?</h5>
+              <h6>You are about to leave this chat session.</h6>
+              
+              <div class="buttons">
+                  <div class="action_btn1">
+                    <a href="{% url 'sample:ahome' %}"><button type="submit" class="btn_yes" id="btnDelete" name="btnApprove">YES</button></a>
+								    <a href="#"><button type="button" class="btn_no">NO</button></a>
+                  </div>
+              </div>
+          </div>
+      </div>
+    
     <h2>Chat Room: {{room}}</h2>
     <p>Note: Messages are secured with end-to-end encryption.</p>
 
@@ -27,7 +46,6 @@
       <b>Tom</b><p>Hello Everyone, How Are You Guys Doing?</p>
       <span class="time-left">20th, April 2021</span>
     </div> -->
-  
     </div>
   
     <div class="container">
@@ -39,6 +57,7 @@
             <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
         </form>
     </div>
+
   
   </div>
   

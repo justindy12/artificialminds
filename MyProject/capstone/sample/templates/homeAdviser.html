@@ -33,7 +33,7 @@
     <!-- Section 1 --> 
     <section>
 		<!--for demo wrap-->
-		<h1 style="margin-left: 20px;">Lists of Requested Appointments</h1>
+		<h1 style="margin-left: 20px; color:  rgb(61, 61, 61);">Requested Appointments</h1>
 		<br>
 		<div class="tbl-header">
 		  <table cellpadding="0" cellspacing="0" border="0">
@@ -61,19 +61,26 @@
 				<td style="width: 130px;">{{qs.meeting_date}}</td>
 				<td style="width: 100px;">{{qs.meeting_time}}</td>
 				<td>
-					
 					<a class="button" href="#modal-{{qs.student_id}}{{qs.meeting_counselor_id}}{{qs.appointmentID}}"><button class="btn">Approve</button></a>
 					<div class="popup" id="modal-{{qs.student_id}}{{qs.meeting_counselor_id}}{{qs.appointmentID}}">
 						<a class="popup__overlay"></a>
 						<div class="popup__wrapper1">
 							<a class="popup__close" href="#" style="font-size: 20px;">&times;</a>
-							<p style="font-size: 18px; margin-top: 15px;">Are you sure?</p><br>
-							<p style="font-size: 14px; font-style: italic; font-weight: 200; text-transform: none;">You are about to approve this appointment.</p><br>
+							<p style="font-size: 18px; margin-top: 15px; pointer-events: none;">Approve appointment</p><br>
+							
 							<form id="deleteForm" method="post">
 								{% csrf_token %}
+								<p style="font-size: 13px; font-weight: 400; text-transform: none; text-align: left; margin-left: 45px; 
+								pointer-events: none;">To complete this approval, please enter room name.</p>
+								<div class="input-box">
+									<span class="details">Room Name</span>
+									<input autocomplete="off" type="text" name="room_name" placeholder="Enter room name" required>
+								</div>
 								<input type="text" name="sid" value="{{qs.student_id}}" hidden>
               					<input type="text" name="aid" value="{{qs.meeting_counselor_id}}" hidden>
               					<input type="text" name="apid" value="{{qs.appointmentID}}" hidden>
+								<p style="font-size: 12px; font-style: italic; font-weight: 200; text-transform: none; 
+								pointer-events: none;">By clicking "YES", you are approving this appointment.</p><br>
 								<button type="submit" class="btn_yes" id="btnDelete" name="btnApprove">YES</button>
 								<a href="{% url 'sample:ahome' %}"><button type="button" class="btn_no">NO</button></a>
 							</form>
@@ -86,7 +93,7 @@
 						<div class="popup__wrapper">
 							<a class="popup__close" href="#" style="font-size: 20px;">&times;</a>
 		
-							<h4 style="text-align: center;">Change schedule date</h4>
+							<h4 style="text-align: center; pointer-events: none;">Change schedule date</h4>
 							<form id="updateForm" method="post">
 								{% csrf_token %}
 								<input type="text" name="sid" value="{{qs.student_id}}" hidden>
@@ -100,7 +107,15 @@
 									<label>Set Time</label>
 								  	<input type="time" class="form-control" id="id-time" name="newtime" value={{qs.meeting_time}} required />
 								</div>
-								<p style="font-size: 14px; font-style: italic; font-weight: 200; text-transform: none;">By clicking the update button, you are rescheduling this appointment.</p><br>
+								<hr>
+								<p style="font-size: 13px; font-weight: 400; text-transform: none; text-align: left; margin-left: 45px; margin-top: 10px; 
+								pointer-events: none;">To complete this appointment, please enter room name.</p>
+								<div class="input-box">
+									<span class="details">Room Name</span>
+									<input autocomplete="off" type="text" name="room_name" placeholder="Enter room name" required>
+								</div>
+								<p style="font-size: 12px; font-style: italic; font-weight: 200; text-transform: none;
+								pointer-events: none;">By clicking "UPDATE", you are rescheduling and approving this appointment.</p><br>
 							
 								  	<button type="submit" class="btn_yes" id="btnUpdate" name="btnUpdate">UPDATE</button>
 									<a href="{% url 'sample:ahome' %}"><button type="button" class="btn_no">CANCEL</button></a>
@@ -111,31 +126,6 @@
 			  </tr>			  
 			</tbody>
 
-			<!--modal Approve-->
-	<!-- <div class="modal fade" id="exampleModal-{{qs.student_id}}{{qs.meeting_counselor_id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Approval Confirmation</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>	
-           <form id="deleteForm" method="post">
-          	{% csrf_token %}
-          <div class="modal-body">
-          	<input type="text" name="sid" value="{{qs.student_id}}" hidden>
-          	<input type="text" name="aid" value="{{qs.meeting_counselor_id}}" hidden>
-            Are you sure you want to approve this request?
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" id="btnDelete" name="btnApprove">YES</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
-          </div>
-           </form>
-        </div>
-      </div>
-    </div> -->
 			{% endfor %}
 		  </table>
 	</div>
@@ -144,7 +134,7 @@
     <!-- Section 2 -->
     
     <section>
-		<h1 style="margin-left: 20px;">Student Status</h1>
+		<h1 style="margin-left: 20px;color:  rgb(61, 61, 61)">Student Status</h1>
 		<br>
 		<div class="tbl-header">
 			<table cellpadding="0" cellspacing="0" border="0" class="table2">
@@ -163,7 +153,47 @@
 				<tr>					
 					<td style="width: 120px;">Carl Cordova</td>
 					<td style="width: 120px;">Red Flag</td>
-					<td style="width: 120px;"> <button class="btn4">View</button></td>
+					<td style="width: 120px;"> 
+						<div class="center">
+							<a class="button" href="#modal1"><button class="btn4">View</button></a>
+							<div class="popup" id="modal1">
+								<a class="popup__overlay"></a>
+								<div class="popup__wrapper2">
+									<a class="popup__close" href="#" style="font-size: 20px;">&times;</a>
+					
+									<h4>STUDENT INFORMATION & STATUS</h4>
+									<div class="caution">
+										<h5><strong>CAUTION:</strong> The information below is classified. The circulation of this information shall be limited to 
+											those persons who are authorized to have the information in the performance of their duties.
+										</h5>
+									</div>
+									
+									<div class="student_details">
+										<div class="div1">
+											<img src="../static/img/images/user.png">
+										</div>
+										<div class="div2">
+											<p>Name <span style="margin-left: 18px;">:</span><span style="margin-left: 10px;">Carl Cordova</span></p> 
+											<p>Email <span style="margin-left: 18px;">:</span><span style="margin-left: 10px;">carl.cordova@cit.edu</span></p> 
+											<p>Phone <span style="margin-left: 12px;">:</span><span style="margin-left: 10px;">09611216904</span></p>
+											<p>Course <span style="margin-left: 3px;">:</span><span style="margin-left: 10px;">BSIT</span></p> 
+											<p>Year <span style="margin-left: 24px;">:</span><span style="margin-left: 10px;">4</span></p>
+											<p style="font-weight: bold; font-size: 20px;">Status <span style="margin-left: 7px; font-weight: 500; font-size: 20px;">:</span><span style="margin-left: 10px; font-weight: 500; font-size: 20px; font-style: italic;">MILD</span></p> 
+										</div>
+								
+										<hr />
+									
+										<div class="remarks">
+											<h5>Written Remarks for this student</h5>
+											<textarea placeholder="Aa"> Remarks from database are shown here...</textarea>
+										</div>
+											
+									</div>
+								</div>
+							</div>
+						</div>
+					</td>
+					
 				</tr>			  
 				</tbody>
 			</table>
@@ -172,16 +202,17 @@
 
     <!-- Section 3 -->
     <section>
-		<h1 style="margin-left: 20px;">Approved Appointments Meeting Type: VIDEO</h1>
+		<h1 style="margin-left: 20px;color:  rgb(61, 61, 61) ">Approved Appointments Meeting Type: VIDEO</h1>
 		<br>
 		<div class="tbl-header">
 			<table cellpadding="0" cellspacing="0" border="0" class="table2">
 				<thead>
 				<tr>
 					<th style="width: 80px;">Meeting</th>
-					<th style="width: 150px;">Name</th>
-					<th style="width: 130px;">Date</th>
+					<th style="width: 100px;">Name</th>
+					<th style="width: 100px;">Date</th>
 					<th style="width: 100px;">Time</th>
+					<th style="width: 100px;">Room</th>
 					<th>Action</th>
 				</tr>
 				</thead>
@@ -193,9 +224,10 @@
 					{% for qs in approved_live %}
 				<tr>					
 					<td style="width: 80px;">{{qs.meeting_type}}</td>
-					<td style="width: 150px;">{{qs.student.firstname}} {{qs.student.lastname}}</td>
-					<td style="width: 130px;">{{qs.meeting_date}}</td>
+					<td style="width: 100px;">{{qs.student.firstname}} {{qs.student.lastname}}</td>
+					<td style="width: 100px;">{{qs.meeting_date}}</td>
 					<td style="width: 100px;">{{qs.meeting_time}}</td>
+					<td style="width: 100px;">Room name here</td>
 					<td> <button class="btn3" onclick="document.location='lobby/'">Start</button></td>
 				</tr>		
 					  {% endfor %}
@@ -206,16 +238,17 @@
 	
 	<!-- Section 4 -->
     <section>
-		<h1 style="margin-left: 20px;">Approved Appointments  Meeting Type: CHAT</h1>
+		<h1 style="margin-left: 20px;color:  rgb(61, 61, 61)">Approved Appointments  Meeting Type: CHAT</h1>
 		<br>
 		<div class="tbl-header">
 			<table cellpadding="0" cellspacing="0" border="0" class="table2">
 				<thead>
 				<tr>
 					<th style="width: 80px;">Meeting</th>
-					<th style="width: 150px;">Name</th>
-					<th style="width: 130px;">Date</th>
+					<th style="width: 100px;">Name</th>
+					<th style="width: 100px;">Date</th>
 					<th style="width: 100px;">Time</th>
+					<th style="width: 100px;">Room</th>
 					<th>Action</th>
 				</tr>
 				</thead>
@@ -227,9 +260,10 @@
 					{% for qs in approved_chat %}
 				<tr>					
 					<td style="width: 80px;">{{qs.meeting_type}}</td>
-					<td style="width: 150px;">{{qs.student.firstname}} {{qs.student.lastname}}</td>
-					<td style="width: 130px;">{{qs.meeting_date}}</td>
+					<td style="width: 100px;">{{qs.student.firstname}} {{qs.student.lastname}}</td>
+					<td style="width: 100px;">{{qs.meeting_date}}</td>
 					<td style="width: 100px;">{{qs.meeting_time}}</td>
+					<td style="width: 100px;">Room name here</td>
 					<td> <button class="btn3" onclick="document.location='chathome'">Start</button></td>
 				</tr>		
 					  {% endfor %}
