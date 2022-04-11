@@ -74,7 +74,7 @@
 								pointer-events: none;">To complete this approval, please enter room name.</p>
 								<div class="input-box">
 									<span class="details">Room Name</span>
-									<input autocomplete="off" type="text" name="room_name" placeholder="Enter room name" required>
+									<input autocomplete="off" type="text" name="room_code" placeholder="Enter room name" required>
 								</div>
 								<input type="text" name="sid" value="{{qs.student_id}}" hidden>
               					<input type="text" name="aid" value="{{qs.meeting_counselor_id}}" hidden>
@@ -227,8 +227,8 @@
 					<td style="width: 100px;">{{qs.student.firstname}} {{qs.student.lastname}}</td>
 					<td style="width: 100px;">{{qs.meeting_date}}</td>
 					<td style="width: 100px;">{{qs.meeting_time}}</td>
-					<td style="width: 100px;">Room name here</td>
-					<td> <button class="btn3" onclick="document.location='lobby/'">Start</button></td>
+					<td style="width: 100px;">{{qs.room_code}}</td>
+					<td> <button class="btn3" onclick="document.location='alobby/'">Start</button></td>
 				</tr>		
 					  {% endfor %}
 				</tbody>

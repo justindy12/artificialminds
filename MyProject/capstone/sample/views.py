@@ -173,10 +173,11 @@ class AdviserHomeView(View):
 				sid = request.POST.get("sid")
 				aid = request.POST.get("aid")
 				apid = request.POST.get("apid")
+				room_code = request.POST.get("room_code")
 				print(sid)
 				print(aid)
 				print(apid)
-				update_appointment_status = Appointment.objects.filter(student_id = sid, meeting_counselor_id = aid, appointmentID =apid).update(is_Approved = 1, meeting_status='approved')
+				update_appointment_status = Appointment.objects.filter(student_id = sid, meeting_counselor_id = aid, appointmentID =apid).update(is_Approved = 1, meeting_status='approved', room_code = room_code)
 
 				print('appointment approved')
 				return redirect('sample:ahome')
@@ -360,11 +361,22 @@ class AdviserSettingView(View):
 					return redirect('sample:ahome')
 
 def lobby(request):
+	students = Student.objects.all()
+	for student in students:
+		if(student.isLoggedIn == True):
+			return render(request, 'lobby.html', {'students':student})
+
+def alobby(request):
 	advisers = Adviser.objects.all()
+	student_online = Student.objects.get(isLoggedIn = True)
+	adviser_online = Adviser.objects.get(isLoggedIn = True)
+	appointments = Appointment.objects.filter(student = student_online.studentID, meeting_counselor = adviser_online.adviserID)
+	#appontment_chosen = Appointment.objects.filter(appointmentID = appointments.appointmentID)
 	for adviser in advisers:
 		if(adviser.isLoggedIn == True):
-			return render(request, 'lobby.html', {'advisers':adviser})
-
+			for appointment in appointments:
+				print(appointment)
+				return render(request, 'alobby.html', {'advisers':adviser, 'appointment':appointment})
 
 def videoroom(request):
 	return render(request, 'room.html')

@@ -44,6 +44,7 @@ class Appointment(models.Model):
 	student = models.ForeignKey(Student, null = False, blank = False, on_delete = models.CASCADE, related_name = "Student")
 	meeting_counselor = models.ForeignKey(Adviser, null = False, blank = False, on_delete = models.CASCADE, related_name = "Adviser")
 	meeting_type = models.CharField(max_length = 100)
+	room_code = models.CharField(max_length=100, default="Null")
 	meeting_status = models.CharField(max_length = 100, default = "pending")
 	meeting_date = models.DateField(default = datetime.now()) 
 	meeting_time = models.TimeField(null = False)

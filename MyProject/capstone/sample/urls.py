@@ -20,6 +20,7 @@ urlpatterns = [
 	path('setappointment', views.SetAppointmentView.as_view(), name="setappointment"),
 	path('viewappointment', views.ViewAppointmentView.as_view(), name="viewappointment"),
 	path('lobby/', views.lobby),
+	path('alobby/', views.alobby),
 	path('videoroom/', views.videoroom),
 	path('get_token/', views.getToken),
 	path('create_member/', views.createMember),
