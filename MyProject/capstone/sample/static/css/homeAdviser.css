@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins: 200,300,400,500,600,700,800,900&display=swap');
+
+* {
+  margin: 0; 
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
 .indent-1 {
   float: left;
 }
@@ -54,11 +63,11 @@ th{
   text-transform: uppercase;
 }
 td{
-  padding: 15px;
+  padding: 10px;
   text-align: left;
   vertical-align:middle;
   font-size: 12px;
-  color: black;
+  color: rgb(61, 61, 61);
   border-bottom: solid 1px rgba(255,255,255,0.1);
 }
 
@@ -103,7 +112,7 @@ section{
   margin: 2px;
   opacity: 0.6;
   transition: 0.3s;
-  width: 90px;
+  width: 100px;
 }
 
 .btn:hover {opacity: 1}
@@ -120,7 +129,7 @@ section{
   margin: 2px;
   opacity: 0.6;
   transition: 0.3s;  
-  width: 90px;
+  width: 100px;
 }
 
 .btn1:hover {opacity: 1}
@@ -171,10 +180,12 @@ section{
   padding: 10px 0 10px 0;
   text-align: center;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: 600;
   margin: 2px;
   opacity: 0.6;
   transition: 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .btn4:hover {opacity: 1}
@@ -637,4 +648,103 @@ input[type="checkbox"]:checked ~ .modal-background {
 	text-transform: initial;
 	text-shadow: none;
 	font-weight: 400;
+}
+
+/* Modal for START - VIDEO */
+
+#logo{
+	display: block;
+	width: 100px;
+	margin: 0 auto;
+}
+
+#form-container{
+  margin: 0;
+	width: 500px;
+	box-shadow: var(--shadow);
+	background-color: #fff;
+	padding: 30px;
+	border-radius: 5px;
+	position: fixed;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#welcome-message{
+	text-align: center;
+	margin: 20px;	
+}
+
+#welcome-message h1{
+	margin-bottom: 0;
+	font-size: 36px;
+  text-transform: capitalize;
+}
+
+
+#welcome-message p{
+	margin-top: 0;
+	font-size: 16px;
+	margin-bottom: 40px;
+  text-transform: initial;
+  font-weight: 400;
+}
+
+.form-field{
+	margin: 18px;
+}
+
+.form-field label{
+	font-size: 16px;
+	line-height: 1.7em;
+}
+
+.form-field input{
+  margin-left: 5%;
+	text-transform:uppercase;
+	height: auto;
+	width: 90%;
+	border: 2px solid rgba(198,202,219,1);
+	border-radius: 10px;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	outline: none;
+	border: 1px solid #ccc;
+	border-bottom-width: 2px;
+	transition: all 0.3s ease;
+  font-weight: bold;
+	border-color: #0693E3;
+}
+
+.form-field input[type='submit']{
+	font-weight: 900;
+	letter-spacing: 2px;
+	background: linear-gradient(135deg, #0693E3, #002BDC);
+	border: none;
+	color: #fff;
+}
+
+
+.form-field input[type='submit']:hover{
+	background: linear-gradient(-135deg, #0693E3, #002BDC);
+	border: none;
+	color: #fff;
+}
+
+.form-field p {
+	font-size: 12px;
+	margin: 20px;
+  font-weight: 400;
+  text-transform: initial;
+}
+
+
+@media screen and (max-width: 450px){
+	#form-container{
+		width: 95%;
+	}
+	#welcome-message h1{
+		font-size: 24px;
+	}
 }
