@@ -1,13 +1,35 @@
 <!DOCTYPE html>
-    <html lang="en" dir="ltr">
-      <head>  
-      </head>
-      <body>
-
-        Thank you!
-
-         <a href="{% url 'sample:logout' %}">Logout</a>
-        
-          
-      </body>
-    </html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/png" href="../static/img/images/favicon1.png">
+  <link rel="stylesheet" type="text/css" href="../static/css/end.css">
+  <title>Thank You | ArtificialMinds </title>
+</head>
+<body style="background: url('../static/img/images/bg_end.jpg') no-repeat fixed center; background-size: 1700px 900px;">
+  <div class="body">
+    <div class="container">
+      <div class="thanks">
+        <h1>Thank you!</h1>
+      </div>
+      <div class="img">
+        <img src="../static/img/images/checked.png">
+      </div>
+      <div class="msg">
+        <p>Thanks a bunch for using CHEER APP by ArtificialMinds. It means a lot to us, just like you do!</p>
+        <p>We really appreciate you giving us a moment of your time today. Thanks for being you.</p>
+      </div>
+      <div>
+        <a href="{% url 'sample:logout' %}"><button class="btn">LOGOUT</button></a>
+      </div>
+      <div class="footer">
+          <footer> Copyright @ 2022 <strong>Artificial Minds</strong> All Rights Reserved</footer>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>
