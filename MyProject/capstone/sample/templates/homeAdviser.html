@@ -243,7 +243,7 @@
 						
 								<form id="videoform">
 									<div class="form-field">
-										<input autocomplete="off" type="text" name="room" value="{{qs.room_code}}" placeholder="{{qs.room_code}}" />
+										<input autocomplete="off" type="text" name="room" value="{{qs.room_code}}" placeholder="{{qs.room_code}}" disabled/>
 									</div>
 						
 									<div class="form-field">
@@ -252,6 +252,7 @@
 									<div class="form-field">
 										<p>By clicking "JOIN", you agree to our Terms of Service and Privacy Statement.</p>
 									</div>
+
 									<div class="form-field">
 										<input type="submit" value="Join" />
 									</div>
@@ -259,8 +260,8 @@
 							</section>
 						</div>
 					</td>
+					 {% endfor %}
 				</tr>		
-					  {% endfor %}
 				</tbody>
 			</table>
 		</div>
@@ -293,7 +294,7 @@
 					<td style="width: 100px;">{{qs.student.firstname}} {{qs.student.lastname}}</td>
 					<td style="width: 100px;">{{qs.meeting_date}}</td>
 					<td style="width: 100px;">{{qs.meeting_time}}</td>
-					<td style="width: 100px;">Room name here</td>
+					<td style="width: 100px;">{{qs.room_code}}</td>
 					<td> 
 						<!-- <button class="btn3" onclick="document.location='chathome'">Start</button> -->
 						<a class="button" href="#modal-{{qs.student_id}}{{qs.meeting_counselor_id}}{{qs.appointmentID}}"><button class="btn3">Start</button></a>
