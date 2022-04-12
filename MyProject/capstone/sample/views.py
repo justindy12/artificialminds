@@ -471,3 +471,6 @@ def getMessages(request, room):
 
 def ratings(request):
 	return render(request, 'ratings.html')
+
+def end(request):
+	return render(request, 'end.html')

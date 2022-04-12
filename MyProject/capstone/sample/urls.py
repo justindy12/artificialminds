@@ -32,6 +32,6 @@ urlpatterns = [
     path('send', views.send, name='send'),
     path('getMessages/<str:room>/', views.getMessages, name='getMessages'),
     path('ratings', views.ratings, name="ratings"),
-
+    path('end', views.end, name="end"),
 ]
 
