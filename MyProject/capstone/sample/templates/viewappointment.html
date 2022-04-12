@@ -130,10 +130,10 @@
 							<form id="post-form" method="POST" action="checkview">
 								{% csrf_token %}
 								<div class="form-field">
-									<input type="text" name="room_name" id="room_name" width="100px" value="{{qs.room_code}}" placeholder="{{qs.room_code}}" autocomplete="off" disabled/>
+									<input type="text" name="room_name" id="room_name" width="100px" value="{{qs.room_code}}" autocomplete="off"/>
 								</div>
 								<div class="form-field">
-									<input type="text" name="username" id="username" width="100px" value="{{qs.student.firstname}}"placeholder="{{qs.student.firstname}}"  autocomplete="off" disabled/>
+									<input type="text" name="username" id="username" width="100px" value="{{qs.student.firstname}}" autocomplete="off"/>
 								</div>
 								<div class="form-field">
 									<p>By clicking "ENTER", you agree to our Terms of Service and Privacy Statement.</p>
