@@ -152,14 +152,16 @@ class AdviserHomeView(View):
 		student = Student.objects.all()
 		appointment = Appointment.objects.filter(meeting_counselor=adviser_online.adviserID,is_Approved=0)
 	
-		approved_chat = Appointment.objects.filter(meeting_counselor=adviser_online.adviserID,is_Approved=1,meeting_type = 'chat')
-		approved_live = Appointment.objects.filter(meeting_counselor=adviser_online.adviserID,is_Approved=1,meeting_type = 'live')
+		approved_chat = Appointment.objects.filter(meeting_counselor=adviser_online.adviserID,is_Approved=1,meeting_type = 'chat',is_Done=0)
+		approved_live = Appointment.objects.filter(meeting_counselor=adviser_online.adviserID,is_Approved=1,meeting_type = 'live',is_Done=0)
+		done_meeting = Appointment.objects.filter(meeting_counselor=adviser_online.adviserID,is_Approved=1,is_Done=1)
 		context ={
 			'advisers':adviser_online,
 			'students':student,
 			'appointments':appointment,
 			'approved_chat':approved_chat,
 			'approved_live':approved_live,
+			'done_meeting':done_meeting,
 			
 		}
 		
@@ -425,6 +427,7 @@ def deleteMember(request):
         uid=data['UID'],
         room_name=data['room_name']
     )
+    update_appointment = Appointment.objects.filter(room_code = member.room_name).update(is_Done=1)
     member.delete()
     return JsonResponse('Member deleted', safe=False)
 

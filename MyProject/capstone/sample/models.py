@@ -49,6 +49,7 @@ class Appointment(models.Model):
 	meeting_date = models.DateField(default = datetime.now()) 
 	meeting_time = models.TimeField(null = False)
 	is_Approved = models.IntegerField(default = 0)
+	is_Done = models.IntegerField(default = 0)
 
 	class Meta:
 		db_table = "appointment"

@@ -134,14 +134,16 @@
     <!-- Section 2 -->
     
     <section>
-		<h1 style="margin-left: 20px;color:  rgb(61, 61, 61)">Student Status</h1>
+		<h1 style="margin-left: 20px;color:  rgb(61, 61, 61)">History</h1>
 		<br>
 		<div class="tbl-header">
 			<table cellpadding="0" cellspacing="0" border="0" class="table2">
 				<thead>
 				<tr>
 					<th style="width: 120px;">Student Name</th>
-					<th style="width: 120px;">Status</th>
+					<th style="width: 120px;">Date</th>
+					<th style="width: 120px;">Time</th>
+					<th style="width: 120px;">Rate</th>
 					<th style="width: 120px;">Details</th>
 				</tr>
 				</thead>
@@ -150,9 +152,11 @@
 			<div class="tbl-content">
 			<table cellpadding="0" cellspacing="0" border="0">
 				<tbody>
+					{% for qs in done_meeting %}
 				<tr>					
-					<td style="width: 120px;">Carl Cordova</td>
-					<td style="width: 120px;">Red Flag</td>
+					<td style="width: 120px;">{{qs.student.firstname}}</td>
+					<td style="width: 120px;">{{qs.meeting_date}}</td>
+					<td style="width: 120px;">{{qs.meeting_type}}</td>
 					<td style="width: 120px;"> 
 						<div class="center">
 							<a class="button" href="#modal0"><button class="btn4">View</button></a>
@@ -196,6 +200,7 @@
 					
 				</tr>			  
 				</tbody>
+				{% endfor %}
 			</table>
 		</div>
 	</section>
