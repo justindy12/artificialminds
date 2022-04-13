@@ -296,8 +296,8 @@ class ViewAppointmentView(View):
 			adviser = Adviser.objects.all()
 			student_online = Student.objects.get(isLoggedIn = True)
 			appointment = Appointment.objects.filter(student = student_online.studentID)
-			chat_appointment = Appointment.objects.filter(student = student_online.studentID, meeting_type='chat')
-			live_appointment = Appointment.objects.filter(student = student_online.studentID, meeting_type='live')
+			chat_appointment = Appointment.objects.filter(student = student_online.studentID, meeting_type='chat',is_Done=0)
+			live_appointment = Appointment.objects.filter(student = student_online.studentID, meeting_type='live',is_Done=0)
 
 			context ={
 				'advisers':adviser,
@@ -428,6 +428,7 @@ def deleteMember(request):
         room_name=data['room_name']
     )
     update_appointment = Appointment.objects.filter(room_code = member.room_name).update(is_Done=1)
+    print(update_appointment)
     member.delete()
     return JsonResponse('Member deleted', safe=False)
 
@@ -449,6 +450,7 @@ def checkview(request):
 	username = request.POST.get('username')
 
 	if Room.objects.filter(name=room).exists():
+		update_appointment = Appointment.objects.filter(room_code=room).update(is_Done=1)
 		return redirect('/'+room+'/?username='+username)
 
 	else:
