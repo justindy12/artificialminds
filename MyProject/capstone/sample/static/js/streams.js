@@ -79,7 +79,7 @@ let leaveAndRemoveLocalStream = async () => {
 
 	await client.leave()
 	deleteMember()
-	window.open('/end', '_self')
+	window.open('/lobby', '_self')
 }
 
 let toggleCamera = async(e) =>{

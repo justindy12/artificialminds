@@ -140,11 +140,12 @@
 			<table cellpadding="0" cellspacing="0" border="0" class="table2">
 				<thead>
 				<tr>
-					<th style="width: 120px;">Student Name</th>
-					<th style="width: 120px;">Date</th>
-					<th style="width: 120px;">Time</th>
-					<th style="width: 120px;">Rate</th>
-					<th style="width: 120px;">Details</th>
+					<th style="width: 40px;">Student Name</th>
+					<th style="width: 15px;">Date</th>
+					<th style="width: 15px;">Time</th>
+					<th style="width: 15px;">Type</th>
+					<th style="width: 10px;">Rate</th>
+					<th style="width: 10px;">Details</th>
 				</tr>
 				</thead>
 			</table>
@@ -154,10 +155,79 @@
 				<tbody>
 					{% for qs in done_meeting %}
 				<tr>					
-					<td style="width: 120px;">{{qs.student.firstname}}</td>
-					<td style="width: 120px;">{{qs.meeting_date}}</td>
-					<td style="width: 120px;">{{qs.meeting_type}}</td>
-					<td style="width: 120px;"> 
+					<td style="width: 30px;">{{qs.student.firstname}} {{qs.student.lastname}}</td>
+					<td style="width: 15px;">{{qs.meeting_date}}</td>
+					<td style="width: 15px;">{{qs.meeting_time}}</td>
+					<td style="width: 10px;">{{qs.meeting_type}}</td>
+					<td style="width: 10px;"> 
+						<div class="center">
+							<a class="button" href="#modal22"><button class="btn5">Rate</button></a>
+							<div class="popup" id="modal22">
+								<a class="popup__overlay"></a>
+								<div class="popup__wrapper3">
+									<a class="popup__close" href="#" style="font-size: 20px;">&times;</a>
+									<div class="centerDiv">
+										<div class="div12">
+											<img src="../static/img/images/user.png">
+										</div>
+										<div class="div21">
+											<p>Name <span style="margin-left: 9px;">:</span><span style="margin-left: 10px;">Carl Cordova</span></p> 
+											<p>Email <span style="margin-left: 14px;">:</span><span style="margin-left: 10px;">carl.cordova@cit.edu</span></p> 
+											<p>Course <span style="margin-left: 2px;">:</span><span style="margin-left: 10px;">BSIT</span></p> 
+											<p>Year <span style="margin-left: 21px;">:</span><span style="margin-left: 10px;">4</span></p> 
+										</div>
+									</div>
+
+									<br>
+									<hr />
+									<form>
+										<div class="status">
+											<div class="radio-buttons">
+												<label class="custom-radio-mild">
+												<input type="radio" name="radio" />
+												<span class="radio-btn1">
+													<div class="hobbies-icon-mild">
+														<i class="fa-regular fa-face-smile"></i>
+														<h3>Mild</h3>
+													</div>
+												</span>
+												</label>
+												<label class="custom-radio-moderate">
+												<input type="radio" name="radio" />
+												<span class="radio-btn2">
+													<div class="hobbies-icon-moderate">
+														<i class="fa-regular fa-face-meh"></i>
+														<h3>Moderate</h3>
+													</div>
+												</span>
+												</label>
+												<label class="custom-radio-severe">
+												<input type="radio" name="radio" />
+												<span class="radio-btn3">
+													<div class="hobbies-icon-severe">
+														<i class="fa-regular fa-face-frown"></i>
+														<h3>Severe</h3>
+													</div>
+												</span>
+												</label>
+											</div>
+										</div>
+										
+										<div class="remarks">
+											<h5>Write Remarks for this student.</h5>
+											<textarea placeholder="Aa"></textarea>
+										</div>
+										
+										<div class="button">
+											<input type="submit" value="Submit Remarks">
+										</div>
+									</form>
+									<br>
+								</div>
+							</div>
+						</div>
+					</td>
+					<td style="width: 10px;"> 
 						<div class="center">
 							<a class="button" href="#modal0"><button class="btn4">View</button></a>
 							<div class="popup" id="modal0">
